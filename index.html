@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./Assets/css/style.css">
     <title>Delish Discoveries</title>
-      <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  </head>
-  
-  <body>
-    
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-<INTEGRITY_HASH>" crossorigin="anonymous" />
+
+</head>
+
+<body>
+<!-- nav -->
     <header class="header">
         <nav>
             <ul>
@@ -28,7 +32,7 @@
                 <li>
                     <a href="favourites">Favourites</a>
                 </li>
-                <li> 
+                <li>
                     <a href="calendar">Calendar</a>
                 </li>
                 <li>
@@ -43,44 +47,54 @@
                 <li>
                     <a href="reviews">Reviews</a>
                 </li>
-                <li> 
+                <li>
                     <a href="recipe">Recipe</a>
                 </li>
 
             </ul>
         </nav>
     </header>
-        
-        <div class="row height d-flex justify-content-center align-items-center">
 
-            <div class="col-12 d-flex justify-content-center form row w-50">
-                <i class="fa fa-search"></i>
-                <div class="col-11"><input type="text" class="form-control form-input" id="ingredientsSearch" placeholder="ingredients"></div>
-                <div class="col-1"><button class="btn btn-primary" id="searchBtn">Search</button></div>
-                <span class="left-pan"><i class="fa-solid fa-magnifying-glass"></i></span>
-            </div>
-
-            <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
-            <!-- Cards inserted here using jquery -->
-            </div>
-          
-        </div>
-
-        <!-- Div for Chart -->
-       <div class="col-4 offset-2 my-5 d-flex flex-wrap row">
-            <div class="card">
-                <div class="cardbody">
-                    <h5>Practice Chart</h5>
-                    <hr>
-                    <canvas id="myChart"></canvas>
+    <!-- Hero Section -->
+    <div class="bg-light-primary py-lg-14 py-12 bg-cover">
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-5 col-lg-6 col-md-12 mx-auto">
+                        <div class="py-5 py-lg-0 row">
+                                <h1 title="Delish Discoveries">Delish Discoveries
+                                    <span class="icon-container"><i class="fas fa-utensils"></i></span>
+                                </h1>
+                            </div>
+                            <p class="subheading">Search for recipes by simply inputting the ingredients you have to
+                                hand and plan out your meals for the week</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control form-input" id="ingredientsSearch"
+                                    placeholder="ingredients">
+                                <div class="input-group-append">
+                                    <button class="btn btn-danger" id="searchBtn">Search</button>
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-       </div>        
+        </section>
+    </div>
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-12 d-flex justify-content-center form row w-50">
+
+        </div>
+
+        <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
+            <!-- Cards inserted here using jquery -->
+        </div>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="./Assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./Assets/js/chart.js"></script>
+    <script src="./Assets/js/script.js"></script>
+</body>
 
-  </body>
 </html>
