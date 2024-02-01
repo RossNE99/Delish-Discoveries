@@ -18,7 +18,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
 
     var testIngredients = ["Chicken", "Tomatos", "Mushrooms"] //Test Ingredients
 
-    fetchData(testIngredients.join(","), renderRecipeList, notworked)
+    //fetchData(testIngredients.join(","), renderRecipeList, notworked)
 
     function notworked(error){
         console.log(error)
@@ -50,4 +50,12 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             $("#recipe-list").append(recipeCard) //add recipe card to the recipe card div
         })
     }
+
+
+    function handelSearch(e){
+        var ingredientsSearched = $("#ingredientsSearch").val()
+        fetchData(ingredientsSearched, renderRecipeList, notworked)
+    }
+    
+    $("#searchBtn").on("click", handelSearch)
 
