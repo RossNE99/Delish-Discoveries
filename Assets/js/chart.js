@@ -4,9 +4,9 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Protein', 'Carbohydrate', 'Fat', 'Fiber', 'Sugar', 'Salt'],
       datasets: [{
-        label: '# of Votes',
+        label: 'Grams',
         data: [12, 19, 3, 5, 2, 3],
         borderWidth: 1
       }]
