@@ -132,6 +132,18 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
        // $("#recipeModalBody").text(JSON.stringify())
     }
 
-    $("#searchBtn").on("click", handelSearch)
+    function handelCalBtnClick(e) {
+        $("#mealCardSection, #heroSection").addClass("d-none")
+        $("#calendarSection").removeClass("d-none")
+    }
 
+    function handelHomeBtnClick(e){
+        $("#mealCardSection, #heroSection").removeClass("d-none")
+        $("#calendarSection").addClass("d-none")
+    }
+
+    $("#searchBtn").on("click", handelSearch)
     $("#recipe-list").on("click", ".card", handelRecpieCardClick)
+
+    $("#homeBtn").on("click", handelHomeBtnClick)
+    $("#calendarBtn").on("click", handelCalBtnClick)
