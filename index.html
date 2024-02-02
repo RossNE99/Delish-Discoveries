@@ -28,7 +28,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
+                    <a id="homeBtn" href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
                     </li>
 
                     <li>
@@ -42,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a href="#calendar"><i class="fa fa-fw fa-calendar"></i>
+                    <a id="calendarBtn" href="#calendar"><i class="fa fa-fw fa-calendar"></i>
                         Calendar</a>
                 </li>
 
@@ -65,7 +65,7 @@
     </header>
 
     <!-- Hero Section -->
-    <div class="bg-light-primary py-lg-14 py-12 bg-cover">
+    <div id="heroSection" class="bg-light-primary py-lg-14 py-12 bg-cover">
         <section class="hero">
             <div class="container">
                 <div class="row align-items-center">
@@ -90,9 +90,16 @@
         </section>
     </div>
 
-    <div class="row height d-flex justify-content-center align-items-center">
+    <div id="mealCardSection" class="row height d-flex justify-content-center align-items-center">
         <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
             <!-- Cards inserted here using jquery -->
+        </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div id="calendarSection" class="row height d-flex justify-content-center align-items-center d-none">
+        <div style="max-width: 1620px; background-color: blue; color: azure;" width="300px" height="300px" class="col-md-8 row row-cols-1 row-cols-md-3 g-4">
+            Cal Here
         </div>
     </div>
 
