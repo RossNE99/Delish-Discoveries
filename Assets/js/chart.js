@@ -1,20 +1,23 @@
 const ctx = document.getElementById('myChart'); //gets chart by ID from html page
 
-fetchData(testIngredients.join(","), renderGraph, notworked);
-
-
 function renderGraph(data) {
-    if (data && data.count) {
-        console.log(data);
+    if (!data)  return
+    
+    //console.log(data);
+    //console.log(data.recipe.calories);
+
+
+    var existingChart = Chart.getChart("myChart");
+    if (existingChart) {
+        existingChart.destroy();
     }
-    console.log(data.hits[0].recipe.calories);
    
-    var protein = data.hits[0].recipe.totalNutrients.PROCNT;
-    var carbs = data.hits[0].recipe.totalNutrients.CHOCDF;
-    var fat = data.hits[0].recipe.totalNutrients.FAT;
-    var fiber = data.hits[0].recipe.totalNutrients.FIBTG;
-    var sugars = data.hits[0].recipe.totalNutrients.SUGAR;
-    var sodium = data.hits[0].recipe.totalNutrients.NA;
+    var protein = data.recipe.totalNutrients.PROCNT;
+    var carbs = data.recipe.totalNutrients.CHOCDF;
+    var fat = data.recipe.totalNutrients.FAT;
+    var fiber = data.recipe.totalNutrients.FIBTG;
+    var sugars = data.recipe.totalNutrients.SUGAR;
+    var sodium = data.recipe.totalNutrients.NA;
 
 
 
