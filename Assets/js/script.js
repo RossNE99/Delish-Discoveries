@@ -15,12 +15,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
         .catch(error => errorCallback(error)); //if an error is thrown the call the passed In Error Function
     }
 
-
-    var testIngredients = ["Chicken", "Tomatos", "Mushrooms"] //Test Ingredients
-
-    //fetchData(testIngredients.join(","), renderRecipeList, notworked)
-
-    function notworked(error){
+    function fetchError(error){
         console.log(error)
     }
 
@@ -28,7 +23,6 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     const uniqueKeysSet = new Set(); //Create a Set to store unique keys
     var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
-    //    console.log(recipes)
        //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
         // Filter out duplicates from loadedRecipes
         const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
@@ -75,21 +69,16 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             })
             $("#recipe-list").append(recipeCard) //add recipe card to the recipe card div
         })
-      //  console.log(uniqueKeysSet)
-      console.log(loadedRecipes)
     }
 
 
     function handelSearch(e){
         var ingredientsSearched = $("#ingredientsSearch").val()
         if(!ingredientsSearched || ingredientsSearched ==="") return
-        fetchData(ingredientsSearched, renderRecipeList, notworked)
+        fetchData(ingredientsSearched, renderRecipeList, fetchError)
     }
 
     function handelRecpieCardClick(e) {
-        //console.log($(e.currentTarget)[0])
-        //console.log(e.currentTarget)
-        //if(!$(e.target).hasClass("card")) return
         var recipeId = $(e.currentTarget).data("recipeid")
 
         var recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
@@ -116,7 +105,6 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
 
         $("#ingredientsList").empty()
         $.each(ingredientLines, function (indexInArray, ingredient) { 
-            console.log(ingredient)
             var ingredientLI = $("<li>", {
                 class:"list-group-item" ,
                 text: ingredient,
@@ -128,10 +116,20 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
 
         renderGraph(recipe)
         $('#recipeModal').modal('show');
-        console.log(recipe)
-       // $("#recipeModalBody").text(JSON.stringify())
+    }
+
+    function handelCalBtnClick(e) {
+        $("#mealCardSection, #heroSection").addClass("d-none")
+        $("#calendarSection").removeClass("d-none")
+    }
+
+    function handelHomeBtnClick(e){
+        $("#mealCardSection, #heroSection").removeClass("d-none")
+        $("#calendarSection").addClass("d-none")
     }
 
     $("#searchBtn").on("click", handelSearch)
-
     $("#recipe-list").on("click", ".card", handelRecpieCardClick)
+
+    $("#homeBtn").on("click", handelHomeBtnClick)
+    $("#calendarBtn").on("click", handelCalBtnClick)
