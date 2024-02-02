@@ -14,6 +14,12 @@
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
+    <!-- Icon Links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 
 <body>
@@ -22,31 +28,36 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#search">Search</a>
+                    <a href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
+                    </li>
+
+                    <li>
+                <a href="#recipe-list"><i class="fa fa-fw fa-cutlery"></i>
+                    </i>Recipes</a> 
                 </li>
+
                 <li>
-                    <a href="#saved">Saved</a>
+                    <a href="#myChart"><i class="fas fa-calculator"></i>
+                        Chart</a>
                 </li>
+
                 <li>
-                    <a href="favourites">Favourites</a>
+                    <a href="#calendar"><i class="fa fa-fw fa-calendar"></i>
+                        Calendar</a>
                 </li>
+
                 <li>
-                    <a href="calendar">Calendar</a>
+                    <a href="#favorites"><i class="fa fa-fw fa-heart"></i>
+                    </i>Favorites</a>
                 </li>
-                <li>
-                    <a href="add-ingredients">Add Ingrediennts</a>
+
+                <li> 
+                    <a href="#reviews"><i class="fa fa-fw fa-star"></i>
+                        Reviews</a>
                 </li>
+
                 <li>
-                    <a href="kitchen-utensils">Kitchen Utensils</a>
-                </li>
-                <li>
-                    <a href="graph">Graph</a>
-                </li>
-                <li>
-                    <a href="reviews">Reviews</a>
-                </li>
-                <li>
-                    <a href="recipe">Recipe</a>
+                    <a href="#contact"><i class="fa fa-envelope"></i>Contact Us</a>
                 </li>
 
             </ul>
@@ -80,15 +91,9 @@
     </div>
 
     <div class="row height d-flex justify-content-center align-items-center">
-
-        <div class="col-12 d-flex justify-content-center form row w-50">
-
-        </div>
-
         <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
             <!-- Cards inserted here using jquery -->
         </div>
-
     </div>
 
     <!-- Modal -->
@@ -136,6 +141,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./Assets/js/chart.js"></script>
     <script src="./Assets/js/script.js"></script>
+
+    <footer class="footer">
+        <h6>Made with 🤍 by Delish Discoveries</h6>
+        <p>
+            Copyright © 2024 Delish Discoveries. All Rights Reserved.
+        </p>
+        <p id="contact">
+            <a href="#contact" class="fa fa-facebook"></a>
+            <a href="#contact" class="fa fa-twitter"></a>
+            <a href="#contact"  class="fa fa-instagram"></a>
+        </p>
+    </footer>
+
 </body>
 
 </html>

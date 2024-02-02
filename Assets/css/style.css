@@ -1,0 +1,33 @@
+/* Navigation Bar Styles */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+nav ul li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+nav ul li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+/* Footer Styles */
+.footer {
+  padding: 30px;
+  clear: both;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+.footer h3 {
+  font-size: 20px;
+}
