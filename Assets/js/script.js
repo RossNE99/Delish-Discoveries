@@ -25,16 +25,42 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     }
 
 
+    const uniqueKeysSet = new Set(); //Create a Set to store unique keys
+    var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
-        console.log(recipes)
+    //    console.log(recipes)
+       //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
+        // Filter out duplicates from loadedRecipes
+        const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
+            // Get the unique key for each object
+            const uniqueKey = recipe._links.self.href;
+        
+            // Check if the key is already in the Set
+            if (!uniqueKeysSet.has(uniqueKey)) {
+            // If not, add it to the Set and return true (keep the object)
+            uniqueKeysSet.add(uniqueKey);
+            return true;
+            }
+            // If the key is already in the Set, return false (filter out the object)
+            return false;
+        });
+        //==================================================================Section to avoid dupes in the infinti loading=======================================================
+        //!!!(infinti loading still needs to be added but this was needed as a blueprint)
+
+
+        loadedRecipes = [...loadedRecipes, ...uniqueLoadedRecipes] //merage loadedRecipes and uniqueLoadedRecipes form the last fetch
+    
         $("#recipe-list").empty(); //remove anything thats currently in the recipe-list div
-        $.each(recipes.hits, function(index, recipe){   //for each recipe create a recipe card
+        $.each(loadedRecipes, function(index, recipe){   //for each recipe create a recipe card
+
+            const uniqueKey = recipe._links.self.href
+            uniqueKeysSet.add(uniqueKey)
+
             var {image, label, totalTime, calories, dietLabels} = recipe.recipe  //destructute 
-           
             var recipeCard = $("<div>", { //create the parent div for the recipe card
                 class:"col", // add classes to the recipe card
                 html: `
-                    <div class="card m-2 d-flex flex-wrap row">
+                    <div data-recipeid='${uniqueKey}' class="card m-2 d-flex flex-wrap row">
                         <img src="${image}" class="card-img-top p-0" alt="${label}">
                         <div class="card-body">
                             <h5 class="card-title">${label}</h5>
@@ -49,6 +75,8 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             })
             $("#recipe-list").append(recipeCard) //add recipe card to the recipe card div
         })
+      //  console.log(uniqueKeysSet)
+      console.log(loadedRecipes)
     }
 
 
@@ -58,5 +86,52 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
         fetchData(ingredientsSearched, renderRecipeList, notworked)
     }
 
+    function handelRecpieCardClick(e) {
+        //console.log($(e.currentTarget)[0])
+        //console.log(e.currentTarget)
+        //if(!$(e.target).hasClass("card")) return
+        var recipeId = $(e.currentTarget).data("recipeid")
+
+        var recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
+
+        var {image, label, totalTime, calories, dietLabels, cuisineType, dishType, yield, ingredientLines, url} = recipe.recipe
+        $("#recipeModalLabel").text(label)
+        var modalImg = $("<img>", {src: image, alt: label, style: "object-fit: contain; height: 100% ;width: 100%;"})
+        $("#recipeModalBodyImg").empty().append(modalImg)
+        var recipeInfo =$("<div>", {
+            html: ` 
+            <div class="card-header">
+               <h5>Recipe Info</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Calories:</b> ${Math.floor(calories)}</li>
+                <li class="list-group-item"><b>Total Time:</b> ${totalTime} Mins</li>
+                <li class="list-group-item"><b>Cuisine Type(s):</b> ${cuisineType.join(", ")}</li>
+                <li class="list-group-item"><b>Dish Type:</b> ${dishType.join(", ")}</li>
+                <li class="list-group-item"><b>Diet Labels:</b> ${dietLabels.join(", ")}</li>
+                <li class="list-group-item"><b>serves:</b> ${yield} People</li>
+            </ul>`    //Not sure if yield is acuareate :/
+        })
+        $("#recipeInfo").empty().append(recipeInfo)
+
+        $("#ingredientsList").empty()
+        $.each(ingredientLines, function (indexInArray, ingredient) { 
+            console.log(ingredient)
+            var ingredientLI = $("<li>", {
+                class:"list-group-item" ,
+                text: ingredient,
+            })
+            $("#ingredientsList").append(ingredientLI)
+        });
+
+        $("#viewCookingInstructionsBtn").attr('onClick', `location.href='${url}'`);
+
+        renderGraph(recipe)
+        $('#recipeModal').modal('show');
+        console.log(recipe)
+       // $("#recipeModalBody").text(JSON.stringify())
+    }
+
     $("#searchBtn").on("click", handelSearch)
 
+    $("#recipe-list").on("click", ".card", handelRecpieCardClick)
