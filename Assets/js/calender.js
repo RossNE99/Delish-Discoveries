@@ -1,20 +1,20 @@
 
 //initialView: 'dayGridWeek' //timeGridDay, dayGridWeek, listWeek, dayGridMonth
+var calendar
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
   
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+      calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
-      initialDate: '2023-11-07',
+      initialDate: dayjs().format('YYYY-MM-DD'),
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'dayGridMonth,timeGridWeek'
       },
       events: eventsArray
     });
   
-    calendar.render();
   });
 
   eventsArray = [
@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
     {
         title: 'Rice-Milk Rice Pudding', 
         start:  '2024-02-02'
+    },
+    {
+      title: 'Click for Google',
+      url: 'https://google.com/',
+      start: '2023-11-28'
     }
     
   ];
@@ -63,9 +68,10 @@ function writeOnCalendar() {
     eventsArray.push(
         {
             title: "Rice-Milk Rice Pudding", 
-            start:  dayjs().format'(YYYY-MM-DD')
+            start:  dayjs().format('YYYY-MM-DD')
         }
     )
-}
 
-console.log(dayjs().format'('YYYY-MM-DD'));
+      }
+
+console.log(dayjs().format('YYYY-MM-DD'));

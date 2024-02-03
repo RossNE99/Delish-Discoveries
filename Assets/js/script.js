@@ -116,11 +116,14 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
 
         renderGraph(recipe)
         $('#recipeModal').modal('show');
+        console.log(loadedRecipes)
     }
 
     function handelCalBtnClick(e) {
         $("#mealCardSection, #heroSection").addClass("d-none")
         $("#calendarSection").removeClass("d-none")
+       // console.log(calendar)
+        calendar.render();
     }
 
     function handelHomeBtnClick(e){
