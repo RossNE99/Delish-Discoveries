@@ -23,7 +23,6 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     const uniqueKeysSet = new Set(); //Create a Set to store unique keys
     var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
-        console.log(recipes)
        //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
         // Filter out duplicates from loadedRecipes
         const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
