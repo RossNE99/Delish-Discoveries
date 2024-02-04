@@ -31,3 +31,8 @@ nav ul li a:hover {
 .footer h3 {
   font-size: 20px;
 }
+
+aside {
+  position:fixed; 
+  height:100vh
+}

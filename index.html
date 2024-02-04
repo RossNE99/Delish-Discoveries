@@ -75,32 +75,34 @@
     </header>
 
     <!-- Hero Section -->
-    <div id="heroSection" class="bg-light-primary py-lg-14 py-12 bg-cover">
-        <section class="hero">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-5 col-lg-6 col-md-12 mx-auto">
-                        <div class="py-5 py-lg-0 row">
-                                <h1 title="Delish Discoveries">Delish Discoveries
-                                    <span class="icon-container"><i class="fas fa-utensils"></i></span>
-                                </h1>
-                            </div>
-                            <p class="subheading">Search for recipes by simply inputting the ingredients you have to
-                                hand and plan out your meals for the week</p>
-                            <div class="input-group">
-                                <input type="text" class="form-control form-input" id="ingredientsSearch"
-                                    placeholder="ingredients">
-                                <div class="input-group-append">
-                                    <button class="btn btn-danger" id="searchBtn">Search</button>
+    <div class="d-flex row bg-light p-5">
+        <div id="heroSection" class="bg-light-primary py-lg-14 py-12 bg-cover">
+            <section class="hero">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 col-lg-6 col-md-12 mx-auto">
+                            <div class="py-5 py-lg-0 row">
+                                    <h1 title="Delish Discoveries">Delish Discoveries
+                                        <span class="icon-container"><i class="fas fa-utensils"></i></span>
+                                    </h1>
                                 </div>
+                                <p class="subheading">Search for recipes by simply inputting the ingredients you have to
+                                    hand and plan out your meals for the week</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-input" id="ingredientsSearch"
+                                        placeholder="ingredients">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger" id="searchBtn">Search</button>
+                                    </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
-    <div id="mealCardSection" class="row height d-flex justify-content-center align-items-center">
+    <div id="mealCardSection" class="row height d-flex justify-content-center align-items-center mx-auto">
         <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
             <!-- Cards inserted here using jquery -->
         </div>
