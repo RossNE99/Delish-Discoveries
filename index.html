@@ -25,43 +25,53 @@
 <body>
 <!-- nav -->
     <header class="header">
-        <nav>
-            <ul>
-                <li>
-                    <a id="homeBtn" href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
-                    </li>
-
-                    <li>
-                <a href="#recipe-list"><i class="fa fa-fw fa-cutlery"></i>
-                    </i>Recipes</a> 
+        <aside class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <span class="fs-5 d-none d-sm-inline">Delish Discoveries</span>
+                        </a>
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" id="homeBtn" href="#ingredientsSearch"><i class="fs-4 bi-house fa fa-search"></i>
+                        <span class="ms-1 d-none d-sm-inline">Search</span></a> 
                 </li>
 
-                <li>
-                    <a href="#myChart"><i class="fas fa-calculator"></i>
-                        Chart</a>
+                <!-- <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#recipe-list"><i class="fs-4 bi-house fa fa-cutlery"></i>
+                    <span class="ms-1 d-none d-sm-inline">Recipes</span></a> 
                 </li>
 
-                <li>
-                    <a id="calendarBtn" href="#calendar"><i class="fa fa-fw fa-calendar"></i>
-                        Calendar</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#myChart"><i class="fs-4 bi-house fas fa-calculator"></i>
+                    <span class="ms-1 d-none d-sm-inline">Chart</span></a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" id="calendarBtn" href="#calendar"><i class="fs-4 bi-house fa fa-calendar"></i>
+                    <span class="ms-1 d-none d-sm-inline">Calendar</span></a>
                 </li>
 
-                <li>
-                    <a href="#favorites"><i class="fa fa-fw fa-heart"></i>
-                    </i>Favorites</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#favorites"><i class="fs-4 bi-house fa fa-heart"></i>
+                    <span class="ms-1 d-none d-sm-inline">Favorites</span></a>
                 </li>
 
-                <li> 
-                    <a href="#reviews"><i class="fa fa-fw fa-star"></i>
-                        Reviews</a>
+                <li class="nav-item"> 
+                    <a class="nav-link align-middle px-0" href="#reviews"><i class="fs-4 bi-house fa fa-star"></i>
+                    <span class="ms-1 d-none d-sm-inline">Reviews</span></a>
                 </li>
 
-                <li>
-                    <a href="#contact"><i class="fa fa-envelope"></i>Contact Us</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#contact"><i class="fs-4 bi-house fa fa-envelope"></i>
+                    <span class="ms-1 d-none d-sm-inline">Contact Us</span></a>
                 </li>
-
             </ul>
-        </nav>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </header>
 
     <!-- Hero Section -->
@@ -148,7 +158,6 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-    <script src="./Assets/js/recipeModal.js"></script>
     <script src="./Assets/js/chart.js"></script>
     <script src="./Assets/js/calender.js"></script>
     <script src="./Assets/js/script.js"></script>
