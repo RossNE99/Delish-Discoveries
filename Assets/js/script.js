@@ -75,6 +75,8 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     function handelSearch(e){
         var ingredientsSearched = $("#ingredientsSearch").val()
         if(!ingredientsSearched || ingredientsSearched ==="") return
+        loadedRecipes = []
+        uniqueKeysSet.clear()
         fetchData(ingredientsSearched, renderRecipeList, fetchError)
     }
 
