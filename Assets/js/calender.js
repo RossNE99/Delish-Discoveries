@@ -1,4 +1,3 @@
-//initialView: 'dayGridWeek' //timeGridDay, dayGridWeek, listWeek, dayGridMonth
 var calendar
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       eventClick: function(info) {
         var eventObj = info.event;
           var recipe = eventObj._def.extendedProps.recipe.recipe
-          handelRecpieCardClick2(recipe)
+          openRecipeModal(null, {recipe})
       },
       initialView: 'dayGridMonth',
       initialDate: dayjs().format('YYYY-MM-DD'),
@@ -20,18 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
   });
-
-  eventsArray = [
-    {
-      title: 'All Day Event',
-      start: '2023-11-01'
-    },
-    {
-        title: 'All Day Event',
-        start: '2023-11-01'
-      },
-  ];
-
 
   var test = [
     {mealDay: dayjs().format('YYYY-MM-DD'),
@@ -845,8 +832,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   ]
 
-  //console.log(createCalData(test))
-
   function createCalData(ls){
     var formattedDataArray = []
     ls.forEach(plannedMeal => {
@@ -859,59 +844,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     return formattedDataArray
   }
-
-
-var addToCalenderBtn = $("#addToCalendarBtn");
-
-
-
-function writeOnCalendar() {
-    eventsArray.push(
-        {
-            title: "Rice-Milk Rice Pudding", 
-            start:  dayjs().format('YYYY-MM-DD')
-        }
-    )
-
-      }
-
-console.log(dayjs().format('YYYY-MM-DD'));
-
-
-
-function handelRecpieCardClick2(recipe) {
-
-  var {image, label, totalTime, calories, dietLabels, cuisineType, dishType, yield, ingredientLines, url} = recipe
-  $("#recipeModalLabel").text(label)
-  var modalImg = $("<img>", {src: image, alt: label, style: "object-fit: contain; height: 100% ;width: 100%;"})
-  $("#recipeModalBodyImg").empty().append(modalImg)
-  var recipeInfo =$("<div>", {
-      html: ` 
-      <div class="card-header">
-         <h5>Recipe Info</h5>
-      </div>
-      <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>Calories:</b> ${Math.floor(calories)}</li>
-          <li class="list-group-item"><b>Total Time:</b> ${totalTime} Mins</li>
-          <li class="list-group-item"><b>Cuisine Type(s):</b> ${cuisineType.join(", ")}</li>
-          <li class="list-group-item"><b>Dish Type:</b> ${dishType.join(", ")}</li>
-          <li class="list-group-item"><b>Diet Labels:</b> ${dietLabels.join(", ")}</li>
-          <li class="list-group-item"><b>serves:</b> ${yield} People</li>
-      </ul>`    //Not sure if yield is acuareate :/
-  })
-  $("#recipeInfo").empty().append(recipeInfo)
-
-  $("#ingredientsList").empty()
-  $.each(ingredientLines, function (indexInArray, ingredient) { 
-      var ingredientLI = $("<li>", {
-          class:"list-group-item" ,
-          text: ingredient,
-      })
-      $("#ingredientsList").append(ingredientLI)
-  });
-
-  $("#viewCookingInstructionsBtn").attr('onClick', `location.href='${url}'`);
-
-  renderGraph(recipe, true)
-  $('#recipeModal').modal('show');
-}
