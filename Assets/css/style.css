@@ -33,6 +33,10 @@ nav ul li a:hover {
 }
 
 aside {
-  position:fixed; 
-  height:100vh
+  position: fixed; 
+  height:100vh;
 }
+
+#heroSection {
+  /* position: relative; */
+} 
