@@ -1,8 +1,10 @@
 function openRecipeModal(e, recipe) {
-    
+
     if(!recipe){
         var recipeId = $(e.currentTarget).data("recipeid")
         var recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
+    } else {
+        $("#planMealDateInput").addClass
     }
 
     var {image, label, totalTime, calories, dietLabels, cuisineType, dishType, yield, ingredientLines, url} = recipe.recipe
@@ -38,4 +40,24 @@ function openRecipeModal(e, recipe) {
 
     renderGraph(recipe)
     $('#recipeModal').modal('show');
+
+    $('#planMealDateInput').daterangepicker({
+        drops: "up",
+        autoUpdateInput: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        autoApply: true,
+      }, function(mealDay){ savePlannedRecipeToLocalStorage(mealDay)}
+    )
+
+    $("#planMealForToday").on("click", function() {savePlannedRecipeToLocalStorage(dayjs())})
+
+    function savePlannedRecipeToLocalStorage(mealDay) {
+        console.log(mealDay)
+        var PlannedMealObj = {mealDay: mealDay.format("YYYY-MM-DD"), recipe}
+        var prevPlannedMeals = JSON.parse(localStorage.getItem("plannedMeals")) || []
+        localStorage.setItem("plannedMeals", JSON.stringify([...prevPlannedMeals, PlannedMealObj]))
+        console.log(JSON.parse(localStorage.getItem("plannedMeals")))
+        }
+
 }

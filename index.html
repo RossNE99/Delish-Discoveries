@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
@@ -149,9 +149,17 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" href="" id="viewCookingInstructionsBtn">View cooking Instructions</button>
-                    <button type="button" class="btn btn-primary">Add to favourites</button>
-                    <button type="button" class="btn btn-primary" id="addToCalendarBtn">Add to calendar</button>
+                    <button type="button" class="btn btn-info" href="" id="viewCookingInstructionsBtn">View cooking Instructions</button>
+                    <div class="dropup-center dropup">
+                        <button class="btn btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Plan meal
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><button id="planMealDateInput" class="dropdown-item">Select a Day</button></li>
+                          <li><button id="planMealForToday" class="dropdown-item" href="#">Plan for Today</button></li>
+                        </ul>
+                      </div>
+                    <button type="button" class="btn btn-warning">Add to favourites</button>
                 </div>
             </div>
         </div>
@@ -163,6 +171,9 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="./Assets/js/recipeModal.js"></script>
     <script src="./Assets/js/chart.js"></script>
     <script src="./Assets/js/calender.js"></script>
     <script src="./Assets/js/script.js"></script>
