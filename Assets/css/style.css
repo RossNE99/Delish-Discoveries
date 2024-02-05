@@ -35,8 +35,23 @@ nav ul li a:hover {
 aside {
   position: fixed; 
   height:100vh;
+  z-index: auto;
+  float: left;
 }
 
-#heroSection {
-  /* position: relative; */
-} 
+
+.moveCenter {
+  position: relative;
+  left: 10%;
+}
+
+.moveCenterFooter {
+  position: relative;
+  left: 5%;
+}
+
+.moveCenterCards {
+  position: relative;
+  left: 7.5%;
+}
+
