@@ -83,7 +83,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     function handelCalBtnClick(e) {
         $("#mealCardSection, #heroSection").addClass("d-none")
         $("#calendarSection").removeClass("d-none")
-        calendar.render();
+        rednderCal()
     }
 
     function handelHomeBtnClick(e){
