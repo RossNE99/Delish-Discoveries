@@ -40,7 +40,7 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
         nextPageLink = recipes._links.next.href
-       //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
+       //==================================================================Section to avoid dupes in the infinti loading=======================================================
         // Filter out duplicates from loadedRecipes
         const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
             // Get the unique key for each object
@@ -56,7 +56,6 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
             return false;
         });
         //==================================================================Section to avoid dupes in the infinti loading=======================================================
-        //!!!(infinti loading still needs to be added but this was needed as a blueprint)
 
 
         loadedRecipes = [...loadedRecipes, ...uniqueLoadedRecipes] //merage loadedRecipes and uniqueLoadedRecipes form the last fetch
