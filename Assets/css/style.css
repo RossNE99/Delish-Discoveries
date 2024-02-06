@@ -61,7 +61,6 @@ aside {
 
 .moveCenterFooter {
   position: relative;
-  left: 5%;
 }
 
 .moveCenterCards {
@@ -192,4 +191,50 @@ aside {
     font-weight: 500;
   }
   
+/* Newsletter Styles */
+
+form {
+  border: 3px;
+  color: var(--primary-color);
+}
+
+form h5 {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.form-container {
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  margin-top: 16px;
+}
+
+input[type=submit] {
+  background: linear-gradient(
+    to left,
+    var(--primary-color),
+    var(--primary-color-dark)
+  );
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+
+
   
