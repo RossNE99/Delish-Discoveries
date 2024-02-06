@@ -57,7 +57,30 @@ function openRecipeModal(e, recipe) {
         var PlannedMealObj = {mealDay: mealDay.format("YYYY-MM-DD"), recipe}
         var prevPlannedMeals = JSON.parse(localStorage.getItem("plannedMeals")) || []
         localStorage.setItem("plannedMeals", JSON.stringify([...prevPlannedMeals, PlannedMealObj]))
-        console.log(JSON.parse(localStorage.getItem("plannedMeals")))
+        showToast("Meal added to calendar!", `${recipe.recipe.label}, has been planned for ${dayjs(mealDay).format("D MMM")}`, `fa-save`, 'blue') //show a toast to the user to let them know that there task has been saved
         }
 
+}
+
+
+function showToast(title, message, icon, color){    //Function to show a toast(notifcation) when required
+    var toast = $("<div>",{     //create the toast using html
+        id: "toast", class: "toast m-2 mt-4", role: "alert", "aria-live": "assertive", "aria-atomic":"true", style: `display: block; position: fixed; bottom: 0; left: 0; z-index: 9999999;"`,
+        html:
+        `<div class="toast-header">
+          <i style="color: ${color};" class="fas ${icon} m-2" aria-hidden="true"></i>
+          <strong class="me-auto">${title}</strong>
+          <small>Now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          ${message}
+        </div>`
+    })
+    
+    $("body").append(toast) //Show the toast
+
+    setTimeout(() => {  //Hide the toast after 3 and a half secconds
+        $("#toast").remove()
+    },3500)
 }
