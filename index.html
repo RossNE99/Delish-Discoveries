@@ -25,73 +25,87 @@
 <body>
 <!-- nav -->
     <header class="header">
-        <nav>
-            <ul>
-                <li>
-                    <a id="homeBtn" href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
-                    </li>
-
-                    <li>
-                <a href="#recipe-list"><i class="fa fa-fw fa-cutlery"></i>
-                    </i>Recipes</a> 
+        <aside class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-xl-2 px-md-2 px-0 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <span class="fs-5 d-none d-md-inline">Delish Discoveries</span>
+                        </a>
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0 my-1" id="homeBtn" href="#ingredientsSearch"><i class="fs-4 bi-house fa fa-search"></i>
+                        <span class="ms-1 d-none d-md-inline">Search</span></a> 
                 </li>
 
-                <li>
-                    <a href="#myChart"><i class="fas fa-calculator"></i>
-                        Chart</a>
+                <!-- <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#recipe-list"><i class="fs-4 bi-house fa fa-cutlery"></i>
+                    <span class="ms-1 d-none d-sm-inline">Recipes</span></a> 
                 </li>
 
-                <li>
-                    <a id="calendarBtn"><i class="fa fa-fw fa-calendar"></i>
-                        Calendar</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#myChart"><i class="fs-4 bi-house fas fa-calculator"></i>
+                    <span class="ms-1 d-none d-sm-inline">Chart</span></a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" id="calendarBtn" href="#calendar"><i class="fs-4 bi-house fa fa-calendar"></i>
+                    <span class="ms-1 d-none d-md-inline">Calendar</span></a>
                 </li>
 
-                <li>
-                    <a href="#favorites"><i class="fa fa-fw fa-heart"></i>
-                    </i>Favorites</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#favorites"><i class="fs-4 bi-house fa fa-heart"></i>
+                    <span class="ms-1 d-none d-md-inline">Favorites</span></a>
                 </li>
 
-                <li> 
-                    <a href="#reviews"><i class="fa fa-fw fa-star"></i>
-                        Reviews</a>
+                <li class="nav-item"> 
+                    <a class="nav-link align-middle px-0" href="#reviews"><i class="fs-4 bi-house fa fa-star"></i>
+                    <span class="ms-1 d-none d-md-inline">Reviews</span></a>
                 </li>
 
-                <li>
-                    <a href="#contact"><i class="fa fa-envelope"></i>Contact Us</a>
+                <li class="nav-item">
+                    <a class="nav-link align-middle px-0" href="#contact"><i class="fs-4 bi-house fa fa-envelope"></i>
+                    <span class="ms-1 d-none d-md-inline">Contact Us</span></a>
                 </li>
-
             </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <div id="heroSection" class="bg-light-primary py-lg-14 py-12 bg-cover">
-        <section class="hero">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-5 col-lg-6 col-md-12 mx-auto">
-                        <div class="py-5 py-lg-0 row">
-                                <h1 title="Delish Discoveries">Delish Discoveries
-                                    <span class="icon-container"><i class="fas fa-utensils"></i></span>
-                                </h1>
-                            </div>
-                            <p class="subheading">Search for recipes by simply inputting the ingredients you have to
-                                hand and plan out your meals for the week</p>
-                            <div class="input-group">
-                                <input type="text" class="form-control form-input" id="ingredientsSearch"
-                                    placeholder="ingredients">
-                                <div class="input-group-append">
-                                    <button class="btn btn-danger" id="searchBtn">Search</button>
-                                </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
+    </header>
+
+    
+
+    <!-- Hero Section -->
+    <div class="row col-auto bg-light p-5 d-flex" id="heroSection">
+        <div id="heroSection" class="bg-light-primary py-lg-14 py-12 bg-cover">
+            <section class="hero">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-auto col-md-5 mx-auto moveCenter">
+                            <div class="py-5 py-lg-0 row">
+                                    <h1 title="Delish Discoveries">Delish Discoveries
+                                        <span class="icon-container"><i class="fas fa-utensils"></i></span>
+                                    </h1>
+                                </div>
+                                <p class="subheading">Search for recipes by simply inputting the ingredients you have to
+                                    hand and plan out your meals for the week</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-input" id="ingredientsSearch"
+                                        placeholder="ingredients">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger" id="searchBtn">Search</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
-    <div id="mealCardSection" class="row height d-flex justify-content-center align-items-center">
-        <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
+    <div id="mealCardSection" class="row height d-flex justify-content-center align-items-center mx-auto">
+        <div style="max-width: 1420px;" class="col-sm-8 row row-cols-1 row-cols-md-3 g-4 moveCenterCards" id="recipe-list">
             <!-- Cards inserted here using jquery -->
         </div>
     </div>
@@ -149,8 +163,9 @@
                 </div>
             </div>
         </div>
-    </div>
 
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
@@ -163,16 +178,18 @@
     <script src="./Assets/js/calender.js"></script>
     <script src="./Assets/js/script.js"></script>
     
-    <footer class="footer">
-        <h6>Made with 🤍 by Delish Discoveries</h6>
-        <p>
-            Copyright © 2024 Delish Discoveries. All Rights Reserved.
-        </p>
-        <p id="contact">
-            <a href="#contact" class="fa fa-facebook"></a>
-            <a href="#contact" class="fa fa-twitter"></a>
-            <a href="#contact"  class="fa fa-instagram"></a>
-        </p>
+    <footer class="row footer">
+        <div class="moveCenterFooter">
+            <h6>Made with 🤍 by Delish Discoveries</h6>
+            <p>
+                Copyright © 2024 Delish Discoveries. All Rights Reserved.
+            </p>
+            <p id="contact">
+                <a href="#contact" class="fa fa-facebook"></a>
+                <a href="#contact" class="fa fa-twitter"></a>
+                <a href="#contact"  class="fa fa-instagram"></a>
+            </p>
+        </div>
     </footer>
 
 </body>

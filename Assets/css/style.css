@@ -31,3 +31,27 @@ nav ul li a:hover {
 .footer h3 {
   font-size: 20px;
 }
+
+aside {
+  position: fixed; 
+  height:100vh;
+  z-index: auto;
+  float: left;
+}
+
+
+.moveCenter {
+  position: relative;
+  left: 10%;
+}
+
+.moveCenterFooter {
+  position: relative;
+  left: 5%;
+}
+
+.moveCenterCards {
+  position: relative;
+  left: 7.5%;
+}
+
