@@ -124,7 +124,9 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             $("#ingredientsList").append(ingredientLI)
         });
 
-        $("#viewCookingInstructionsBtn").attr('onClick', `location.href='${url}'`);
+        $("#viewCookingInstructionsBtn").on('click', function(){
+            window.open(url, '_blank')
+        });
 
         renderGraph(recipe)
         $('#recipeModal').modal('show');
