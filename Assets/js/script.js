@@ -1,8 +1,24 @@
-function fetchData(ingredients , successCallback, errorCallback) {    //Function that is used to fetch the data 
+var nextPageLink;
+
+function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {    //Function that is used to fetch the data 
     
     var APIKey = "708b1490ccba3fe81fef84be76d47774";    //API key 
     var APPID = "8e8e1272"   //API APP ID 
     var baseURL = "https://api.edamam.com/api/recipes/v2?type=public"    //Base URL to get the data from
+
+    if(nextPageLink){
+        if($("#mealCardSection").hasClass("d-hide")) return
+        fetch(nextPageLink) //retreve data
+        .then(response => { //if responce isnt okay then throw and error
+            if (!response.ok) {
+                throw new Error('Something went wrong :(');
+            }
+        return response.json(); //return the responce in a parsed form
+        })
+        .then(data => successCallback(data))   //call the passed in successCallback function
+        .catch(error => errorCallback(error)); //if an error is thrown the call the passed In Error Function 
+        return
+    }
     
     fetch(`${baseURL}&q=${ingredients}&app_id=${APPID}&app_key=${APIKey}`) //retreve data
         .then(response => { //if responce isnt okay then throw and error
@@ -23,6 +39,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     const uniqueKeysSet = new Set(); //Create a Set to store unique keys
     var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
+        nextPageLink = recipes._links.next.href
        //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
         // Filter out duplicates from loadedRecipes
         const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
@@ -77,6 +94,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
         if(!ingredientsSearched || ingredientsSearched ==="") return
         loadedRecipes = []
         uniqueKeysSet.clear()
+        nextPageLink = null
         fetchData(ingredientsSearched, renderRecipeList, fetchError)
     }
 
@@ -96,3 +114,9 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
 
     $("#homeBtn").on("click", handelHomeBtnClick)
     $("#calendarBtn").on("click", handelCalBtnClick)
+
+    $(window).scroll(function() {   
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            if(nextPageLink) fetchData(null, renderRecipeList, fetchError, nextPageLink)
+        }
+     });
