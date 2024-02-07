@@ -75,7 +75,7 @@ aside {
   }
   
   #reviewsDiv {
-    background-color: var(--text-dark);
+    background-color: #f1f1f1;
     flex-direction: row;
   }
   
@@ -226,6 +226,7 @@ aside {
   margin-top: 25vh;
 }
 
+
 /* Card styling*/
 .col {
   border-radius: 15px;
@@ -234,4 +235,8 @@ flex:content
 
 .col:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+
+.fa-star {
+  color: orange;
+
 }
