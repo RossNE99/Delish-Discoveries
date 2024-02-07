@@ -98,14 +98,25 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     }
 
     function handelCalBtnClick(e) {
-        $("#mealCardSection, #heroSection").addClass("d-none")
+        $("#mealCardSection, #heroSection, #subscription, #reviews").addClass("d-none")
         $("#calendarSection").removeClass("d-none")
+        $("#homeBtn, #aboutUsBtn").removeClass("active")
+        $("#calendarBtn").addClass("active")
         rednderCal()
     }
 
     function handelHomeBtnClick(e){
         $("#mealCardSection, #heroSection").removeClass("d-none")
-        $("#calendarSection").addClass("d-none")
+        $("#calendarSection, #subscription, #reviews").addClass("d-none")
+        $("#calendarBtn, #aboutUsBtn").removeClass("active")
+        $("#homeBtn").addClass("active")
+    }
+
+    function handelAboutUsBtnClick(e) {
+        $("#mealCardSection, #heroSection, #calendarSection").addClass("d-none")
+        $("#reviews, #subscription").removeClass("d-none")
+        $("#calendarBtn, #homeBtn").removeClass("active")
+        $("#aboutUsBtn").addClass("active")
     }
 
     $("#searchBtn").on("click", handelSearch)
@@ -113,6 +124,8 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
 
     $("#homeBtn").on("click", handelHomeBtnClick)
     $("#calendarBtn").on("click", handelCalBtnClick)
+
+    $("#aboutUsBtn").on("click", handelAboutUsBtnClick)
 
     $(window).scroll(function() {   
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
