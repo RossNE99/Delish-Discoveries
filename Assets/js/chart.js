@@ -2,10 +2,6 @@ const ctx = document.getElementById('myChart'); //gets chart by ID from html pag
 
 function renderGraph(data) {
     if (!data)  return
-    
-    //console.log(data);
-    //console.log(data.recipe.calories);
-
 
     var existingChart = Chart.getChart("myChart");
     if (existingChart) {
@@ -18,8 +14,6 @@ function renderGraph(data) {
     var fiber = data.recipe.totalNutrients.FIBTG;
     var sugars = data.recipe.totalNutrients.SUGAR;
     var sodium = data.recipe.totalNutrients.NA;
-
-
 
     new Chart(ctx, {
       type: 'bar',

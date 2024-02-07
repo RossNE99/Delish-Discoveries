@@ -1,8 +1,24 @@
-function fetchData(ingredients , successCallback, errorCallback) {    //Function that is used to fetch the data 
+var nextPageLink;
+
+function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {    //Function that is used to fetch the data 
     
     var APIKey = "708b1490ccba3fe81fef84be76d47774";    //API key 
     var APPID = "8e8e1272"   //API APP ID 
     var baseURL = "https://api.edamam.com/api/recipes/v2?type=public"    //Base URL to get the data from
+
+    if(nextPageLink){
+        if($("#mealCardSection").hasClass("d-hide")) return
+        fetch(nextPageLink) //retreve data
+        .then(response => { //if responce isnt okay then throw and error
+            if (!response.ok) {
+                throw new Error('Something went wrong :(');
+            }
+        return response.json(); //return the responce in a parsed form
+        })
+        .then(data => successCallback(data))   //call the passed in successCallback function
+        .catch(error => errorCallback(error)); //if an error is thrown the call the passed In Error Function 
+        return
+    }
     
     fetch(`${baseURL}&q=${ingredients}&app_id=${APPID}&app_key=${APIKey}`) //retreve data
         .then(response => { //if responce isnt okay then throw and error
@@ -15,12 +31,7 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
         .catch(error => errorCallback(error)); //if an error is thrown the call the passed In Error Function
     }
 
-
-    var testIngredients = ["Chicken", "Tomatos", "Mushrooms"] //Test Ingredients
-
-    //fetchData(testIngredients.join(","), renderRecipeList, notworked)
-
-    function notworked(error){
+    function fetchError(error){
         console.log(error)
     }
 
@@ -28,8 +39,8 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
     const uniqueKeysSet = new Set(); //Create a Set to store unique keys
     var loadedRecipes =[];  //all the repices loaded onto the page
     function renderRecipeList(recipes){
-    //    console.log(recipes)
-       //==================================================================Section to avoid dupes in the infinti loading======================================================= !!!(infinti loading still needs to be added but this was needed as a blueprint)
+        nextPageLink = recipes._links.next.href
+       //==================================================================Section to avoid dupes in the infinti loading=======================================================
         // Filter out duplicates from loadedRecipes
         const uniqueLoadedRecipes = recipes.hits.filter(recipe => {
             // Get the unique key for each object
@@ -45,7 +56,6 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             return false;
         });
         //==================================================================Section to avoid dupes in the infinti loading=======================================================
-        //!!!(infinti loading still needs to be added but this was needed as a blueprint)
 
 
         loadedRecipes = [...loadedRecipes, ...uniqueLoadedRecipes] //merage loadedRecipes and uniqueLoadedRecipes form the last fetch
@@ -75,63 +85,50 @@ function fetchData(ingredients , successCallback, errorCallback) {    //Function
             })
             $("#recipe-list").append(recipeCard) //add recipe card to the recipe card div
         })
-      //  console.log(uniqueKeysSet)
-      console.log(loadedRecipes)
     }
 
 
     function handelSearch(e){
         var ingredientsSearched = $("#ingredientsSearch").val()
         if(!ingredientsSearched || ingredientsSearched ==="") return
-        fetchData(ingredientsSearched, renderRecipeList, notworked)
+        loadedRecipes = []
+        uniqueKeysSet.clear()
+        nextPageLink = null
+        fetchData(ingredientsSearched, renderRecipeList, fetchError)
     }
 
-    function handelRecpieCardClick(e) {
-        //console.log($(e.currentTarget)[0])
-        //console.log(e.currentTarget)
-        //if(!$(e.target).hasClass("card")) return
-        var recipeId = $(e.currentTarget).data("recipeid")
+    function handelCalBtnClick(e) {
+        $("#mealCardSection, #heroSection, #subscription, #reviews").addClass("d-none")
+        $("#calendarSection").removeClass("d-none")
+        $("#homeBtn, #aboutUsBtn").removeClass("active")
+        $("#calendarBtn").addClass("active")
+        rednderCal()
+    }
 
-        var recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
+    function handelHomeBtnClick(e){
+        $("#mealCardSection, #heroSection").removeClass("d-none")
+        $("#calendarSection, #subscription, #reviews").addClass("d-none")
+        $("#calendarBtn, #aboutUsBtn").removeClass("active")
+        $("#homeBtn").addClass("active")
+    }
 
-        var {image, label, totalTime, calories, dietLabels, cuisineType, dishType, yield, ingredientLines, url} = recipe.recipe
-        $("#recipeModalLabel").text(label)
-        var modalImg = $("<img>", {src: image, alt: label, style: "object-fit: contain; height: 100% ;width: 100%;"})
-        $("#recipeModalBodyImg").empty().append(modalImg)
-        var recipeInfo =$("<div>", {
-            html: ` 
-            <div class="card-header">
-               <h5>Recipe Info</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Calories:</b> ${Math.floor(calories)}</li>
-                <li class="list-group-item"><b>Total Time:</b> ${totalTime} Mins</li>
-                <li class="list-group-item"><b>Cuisine Type(s):</b> ${cuisineType.join(", ")}</li>
-                <li class="list-group-item"><b>Dish Type:</b> ${dishType.join(", ")}</li>
-                <li class="list-group-item"><b>Diet Labels:</b> ${dietLabels.join(", ")}</li>
-                <li class="list-group-item"><b>serves:</b> ${yield} People</li>
-            </ul>`    //Not sure if yield is acuareate :/
-        })
-        $("#recipeInfo").empty().append(recipeInfo)
-
-        $("#ingredientsList").empty()
-        $.each(ingredientLines, function (indexInArray, ingredient) { 
-            console.log(ingredient)
-            var ingredientLI = $("<li>", {
-                class:"list-group-item" ,
-                text: ingredient,
-            })
-            $("#ingredientsList").append(ingredientLI)
-        });
-
-        $("#viewCookingInstructionsBtn").attr('onClick', `location.href='${url}'`);
-
-        renderGraph(recipe)
-        $('#recipeModal').modal('show');
-        console.log(recipe)
-       // $("#recipeModalBody").text(JSON.stringify())
+    function handelAboutUsBtnClick(e) {
+        $("#mealCardSection, #heroSection, #calendarSection").addClass("d-none")
+        $("#reviews, #subscription").removeClass("d-none")
+        $("#calendarBtn, #homeBtn").removeClass("active")
+        $("#aboutUsBtn").addClass("active")
     }
 
     $("#searchBtn").on("click", handelSearch)
+    $("#recipe-list").on("click", ".card", openRecipeModal)
 
-    $("#recipe-list").on("click", ".card", handelRecpieCardClick)
+    $("#homeBtn").on("click", handelHomeBtnClick)
+    $("#calendarBtn").on("click", handelCalBtnClick)
+
+    $("#aboutUsBtn").on("click", handelAboutUsBtnClick)
+
+    $(window).scroll(function() {   
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            if(nextPageLink) fetchData(null, renderRecipeList, fetchError, nextPageLink)
+        }
+     });

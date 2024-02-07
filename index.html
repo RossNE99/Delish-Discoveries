@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/css/sidebar.css">
     <title>Delish Discoveries</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,85 +17,74 @@
 
     <!-- Icon Links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
-
 <body>
-<!-- nav -->
-    <header class="header">
-        <nav>
-            <ul>
-                <li>
-                    <a href="#ingredientsSearch"><i class="fa fa-fw fa-search"></i>Search</a> 
-                    </li>
-
-                    <li>
-                <a href="#recipe-list"><i class="fa fa-fw fa-cutlery"></i>
-                    </i>Recipes</a> 
-                </li>
-
-                <li>
-                    <a href="#myChart"><i class="fas fa-calculator"></i>
-                        Chart</a>
-                </li>
-
-                <li>
-                    <a href="#calendar"><i class="fa fa-fw fa-calendar"></i>
-                        Calendar</a>
-                </li>
-
-                <li>
-                    <a href="#favoritesSection"><i class="fa fa-fw fa-heart"></i>
-                    </i>Favorites</a>
-                </li>
-
-                <li> 
-                    <a href="#reviews"><i class="fa fa-fw fa-star"></i>
-                        Reviews</a>
-                </li>
-
-                <li>
-                    <a href="#contact"><i class="fa fa-envelope"></i>Contact Us</a>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
+    <!-- nav -->
+    <aside class="sidebar">
+        <div class="sidebar">
+            <span class="fs-2 d-none d-md-inline">Delish Discoveries</span>
+            <a class="active" id="homeBtn"><i class="fs-5 bi-house fa fa-search me-1"></i><span class="">Search</span></a> 
+            <a  id="calendarBtn"><i class="fs-5 bi-house fa fa-calendar me-1"></i><span class="">Calendar</span></a>
+            <a  id="FavoritesNavBtn"><i class="fs-5 bi-house fa fa-heart me-1"></i><span class="">Favorites</span></a>
+            <a id="aboutUsBtn"><i class="fs-5 fa-user-plus fa me-1"></i><span class="">About Us</span></a>
+          </div>
+    </aside>
+  
+  <!-- Page content -->
+  <div class="content">
 
     <!-- Hero Section -->
-    <div class="bg-light-primary py-lg-14 py-12 bg-cover">
-        <section class="hero">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-5 col-lg-6 col-md-12 mx-auto">
-                        <div class="py-5 py-lg-0 row">
-                                <h1 title="Delish Discoveries">Delish Discoveries
-                                    <span class="icon-container"><i class="fas fa-utensils"></i></span>
-                                </h1>
-                            </div>
-                            <p class="subheading">Search for recipes by simply inputting the ingredients you have to
-                                hand and plan out your meals for the week</p>
-                            <div class="input-group">
-                                <input type="text" class="form-control form-input" id="ingredientsSearch"
-                                    placeholder="ingredients">
-                                <div class="input-group-append">
-                                    <button class="btn btn-danger" id="searchBtn">Search</button>
+    <div class="row d-flex justify-content-center bg-light-primary bg-cover">
+        <div class="row col-lg-6 col-md-8 col-sm-10 bg-light d-flex pb-5 pt-5 rounded-4" id="heroSection">
+                <section class="hero">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-auto col-md-5 mx-auto">
+                                <div class="row">
+                                        <h1 title="Delish Discoveries">Delish Discoveries
+                                            <span class="icon-container"><i class="fas fa-utensils"></i></span>
+                                        </h1>
+                                    </div>
+                                    <p class="subheading">Search for recipes by simply inputting the ingredients you have to
+                                        hand and plan out your meals for the week</p>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-input" id="ingredientsSearch"
+                                            placeholder="ingredients">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-danger" id="searchBtn">Search</button>
+                                        </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+        </div>
     </div>
 
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div style="max-width: 1420px;" class="col-md-8 row row-cols-1 row-cols-md-3 g-4" id="recipe-list">
+    <div id="mealCardSection" class="d-flex justify-content-center align-items-center mx-auto mt-4">
+        <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="recipe-list">
             <!-- Cards inserted here using jquery -->
         </div>
     </div>
+
+    <!-- Calendar Section -->
+    <div id="calendarSection" class="row d-flex justify-content-center align-items-center d-none mt-5">
+            <div class="col-10 col-sm-12" style="width: 100%; height: 100%; max-width: 1420px;" id='calendar'></div>
+    </div>
+
+
+
+    <div id="favoritesSection" class="row height d-flex justify-content-center align-items-center d-none">
+        <h2>Favourites</h2>
+        <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="favs-list">
+            <!-- Favorite recipes will be dynamically added here -->
+        </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
@@ -128,11 +118,20 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" href="" id="viewCookingInstructionsBtn">View cooking Instructions</button>
-                    <button type="button" class="btn btn-primary">Add to favourites</button>
-                    <button type="button" class="btn btn-primary">Add to calendar</button>
+                    <button type="button" class="btn btn-info" id="viewCookingInstructionsBtn">View cooking Instructions</button>
+                    <div class="dropup-center dropup">
+                        <button class="btn btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Plan meal
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><button id="planMealDateInput" class="dropdown-item">Select a Day</button></li>
+                          <li><button id="planMealForToday" class="dropdown-item" href="#">Plan for Today</button></li>
+                        </ul>
+                      </div>
+                    <button type="button" id="favBtn" class="btn btn-warning">Add to favourites</button>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -143,23 +142,114 @@
         <ul id="favList" class="list-group list-group-flush"></ul>
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./Assets/js/chart.js"></script>
-    <script src="./Assets/js/script.js"></script>
+     <!-- Reviews -->
+     <div class="reviews-container d-none " id="reviews">
+     <div class="flex rounded-4">
+        <div class="flex-item">
+            <h5> Read what our users say about us</h5>
+            <p><b>We have assisted individuals worldwide in exploring a variety of international cuisines</b></p>
+            <button id="reviews">Our latest reviews<a href="#reviews"></a></button>
+        </div>
+    </div>
+    <div class="flex rounded-4" id="reviewsDiv">
+        <div class="flex-item1">
+            <div class="flex-item1-content">
+                <span><i class="ri-double-quotes-l"></i></span>
+                <div class="flex-item1-details">
+                    <p>
+                        Had a fabulous experience using Delish Discoveries. There are plenty of recipes available for anyone looking for delicious recipes. I highly recommend them! <br/>
+    
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </p>
+                    <h6>-Sarah Jones </h6>
+                </div>
+            </div>
+        </div>  
+        <div class="flex-item2">
+            <div class="flex-item2-content">
+                <span><i class="ri-double-quotes-l"></i></span>
+                <div class="flex-item2-details">
+                    <p>
+                        Hands down my go-to recipe site! I've tried numerous recipes, and each one has been a hit. What sets this website apart is the variety – from quick weekday meals to elaborate weekend cooking projects. The user community and comments section also provide helpful tips and variations. <br/>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </p>
+                    <h6>-John Jones </h6>
+                </div>
+            </div>
+    </div>  
+    <div class="flex-item3">
+        <div class="flex-item3-content">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <div class="flex-item3-details">
+                <p>
+                    I love this recipe website! The variety of recipes is impressive, and they cater to different dietary preferences. The step-by-step instructions are easy to follow, and the pictures make it even better. Tried the chicken enchiladas recipe, and it turned out amazing. Can't wait to explore more! <br/>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+                <h6>-Rebecca Smith </h6>
+            </div>
+        </div>
+    </div>  
+    </div>
+    </div>
+    <!-- End of reviews section-->
 
-    <footer class="footer">
-        <h6>Made with 🤍 by Delish Discoveries</h6>
-        <p>
-            Copyright © 2024 Delish Discoveries. All Rights Reserved.
-        </p>
-        <p id="contact">
-            <a href="#contact" class="fa fa-facebook"></a>
-            <a href="#contact" class="fa fa-twitter"></a>
-            <a href="#contact"  class="fa fa-instagram"></a>
-        </p>
+<!-- Newsletter subscription section-->
+<form class="form-container d-none rounded-4" id="subscription">
+      <h5>Subscribe to our Newsletter</h5>
+    <div class="container" style="background-color:white">
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="text" placeholder="Email address" name="mail" required>
+      <label>
+        <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+      </label>
+    </div>
+    <div class="container">
+      <input type="submit" value="Subscribe">
+      </div>
+  </form>
+
+<!--End of newsletter subscription section-->
+
+
+    <footer class="row">
+                <h6>Made with 🤍 by Delish Discoveries</h6>
+                <p>
+                    Copyright © 2024 Delish Discoveries. All Rights Reserved.
+                </p>
+                <p id="contact">
+                    <a href="#contact" class="fa fa-facebook"></a>
+                    <a href="#contact" class="fa fa-twitter"></a>
+                    <a href="#contact"  class="fa fa-instagram"></a>
+                </p>
     </footer>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="./Assets/js/recipeModal.js"></script>
+<script src="./Assets/js/chart.js"></script>
+<script src="./Assets/js/calender.js"></script>
+<script src="./Assets/js/faves.js"></script>
+<script src="./Assets/js/script.js"></script>
+
 
 </body>
 
