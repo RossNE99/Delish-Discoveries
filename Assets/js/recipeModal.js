@@ -1,11 +1,13 @@
 function openRecipeModal(e, recipe) {
 
+
     if(!recipe){
         var recipeId = $(e.currentTarget).data("recipeid")
-        var recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
+        recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
     } else {
         $("#planMealDateInput").addClass
     }
+
 
     var {image, label, totalTime, calories, dietLabels, cuisineType, dishType, yield, ingredientLines, url} = recipe.recipe
     $("#recipeModalLabel").text(label)
@@ -59,6 +61,10 @@ function openRecipeModal(e, recipe) {
         showToast("Meal added to calendar!", `${recipe.recipe.label}, has been planned for ${dayjs(mealDay).format("D MMM")}`, `fa-save`, 'blue') //show a toast to the user to let them know that there task has been saved
         }
 
+
+      // Event listener for the "Add to Favorites" button
+      $("#favBtn").on("click", function() {addToFavorites(recipe)});
+
 }
 
 
@@ -83,3 +89,27 @@ function showToast(title, message, icon, color){    //Function to show a toast(n
         $("#toast").remove()
     },3500)
 }
+
+
+  // Function to add a recipe to the favorites list
+function addToFavorites(recipe) {
+    // Store favorites in local storage
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    favorites.forEach((fav) => {
+    console.log(recipe._links.self.href)
+    console.log(fav._links.self.href)
+    if(fav._links.self.href === recipe._links.self.href) {
+        console.log("true")
+    }
+    })
+
+    favorites.push(recipe);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    showToast("Meal Saved!", `${recipe.recipe.label}, has been saved to favs`, `fa-save`, 'yellow') //show a toast to the user to let them know that there task has been saved
+  }
+
+
+
+
+

@@ -1,74 +1,28 @@
-// Function to add a recipe to the favorites list
-function addToFavorites(recipe) {
-  const favList = $("#favList");
-  const favItemTemplate = $("#favItemTemplate");
-
-  // Clone the template and update its content
-  const newFavItem = favItemTemplate.clone().contents();
-  newFavItem.find(".card-img-top").attr("src", recipe.image);
-  newFavItem.find(".card-title").text(recipe.title);
-  newFavItem.find(".list-group-item:nth-child(1)").text("Total Time to Make: " + recipe.totalTime);
-  newFavItem.find(".list-group-item:nth-child(2)").text("Total Calories: " + recipe.totalCalories);
-
-  // Append the new favurite item to the favorites list
-  favList.append(newFavItem);
-  newFavItem.removeClass("hide").removeAttr("id");
-
-  // Store favorites in local storage
+function renderFavsList(){
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  favorites.push(recipe);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  $("#favs-list").empty(); //remove anything thats currently in the recipe-list div
+  $.each(favorites, function(index, recipe){   //for each recipe create a recipe card
+
+      const uniqueKey = recipe._links.self.href
+      uniqueKeysSet.add(uniqueKey)
+
+      var {image, label, totalTime, calories, dietLabels} = recipe.recipe  //destructute 
+      var recipeCard = $("<div>", { //create the parent div for the recipe card
+          class:"col", // add classes to the recipe card
+          html: `
+              <div data-recipeid='${uniqueKey}' class="card m-2 d-flex flex-wrap row">
+                  <img src="${image}" class="card-img-top p-0" alt="${label}">
+                  <div class="card-body">
+                      <h5 class="card-title">${label}</h5>
+                      <p class="card-text"></p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Total Time to Make: ${totalTime} mins</li>
+                      <li class="list-group-item">Total Calories: ${Math.floor(calories)}</li>
+                      <li class="list-group-item">${dietLabels.join(", ")}</li>
+                  </ul>
+              </div>`,
+      })
+      $("#favs-list").append(recipeCard) //add recipe card to the recipe card div
+  })
 }
-
-// Function to handle the "Add to Favorites" button click event
-function handleAddToFavoritesClick(){
-  const recipe = {
-    title: "Sample Recipe",
-    image: "sample-image.jpg",
-    totalTime: "30 minutes",
-    totalCalories: "500 kcal"
-};
-
- // Call the addToFavorites function with the recipe details
- addToFavorites(recipe);
-}
-
-// Function to add a recipe to the favorites list on the UI
-function addToFavoritesUI(recipe) {
-  const favList = $("#favList");
-  const favItemTemplate = $("#favItemTemplate");
-
-  // Clone the template and update its content
-  const newFavItem = favItemTemplate.clone().contents();
-  newFavItem.find(".card-img-top").attr("src", recipe.image);
-  newFavItem.find(".card-title").text(recipe.title);
-  newFavItem.find(".list-group-item:nth-child(1)").text("Total Time to Make: " + recipe.totalTime);
-  newFavItem.find(".list-group-item:nth-child(2)").text("Total Calories: " + recipe.totalCalories);
-
-  // Append the new favorite item to the favorites list on the UI
-  favList.append(newFavItem);
-  newFavItem.removeClass("hide").removeAttr("id");
-}
-
-// Event listener for the "Add to Favorites" button
-$(document).ready(function () {
-  $("#favBtn").on("click", handleAddToFavoritesClick);
-});
-
-// Function to retrieve favorites from local storage and render them
-function renderFavorites() {
-  const favList = $("#favList");
-  favList.empty();
-
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  favorites.forEach((recipe) => {
-      addToFavorites(recipe);
-      addToFavoritesUI(recipe);
-  });
-}
-
-// Call renderFavorites when the page is loaded
-$(document).ready(function () {
-renderFavorites();
-});
-
