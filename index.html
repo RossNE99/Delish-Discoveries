@@ -39,7 +39,7 @@
 
     <!-- Hero Section -->
     <div class="row d-flex justify-content-center bg-light-primary bg-cover">
-        <div class="row col-lg-6 col-md-8 col-sm-10 bg-light d-flex pb-5 pt-5 rounded-4" id="heroSection">
+        <div class="row col-lg-6 col-md-8 col-sm-10 bg-light d-flex py-5 rounded-4" id="heroSection">
                 <section class="hero">
                     <div class="container">
                         <div class="row align-items-center">
@@ -143,16 +143,16 @@
 </div>
 
      <!-- Reviews -->
-     <div class="reviews-container d-none " id="reviews">
-     <div class="flex rounded-4">
+     <!-- <div class="reviews-container d-none p-5 row d-flex justify-content-center bg-light-primary bg-cover" id="reviews"> -->
+     <!-- <div class="flex rounded-4">
         <div class="flex-item">
             <h5> Read what our users say about us</h5>
             <p><b>We have assisted individuals worldwide in exploring a variety of international cuisines</b></p>
             <button id="reviews">Our latest reviews<a href="#reviews"></a></button>
         </div>
     </div>
-    <div class="flex rounded-4" id="reviewsDiv">
-        <div class="flex-item1">
+    <div class="flex container rounded-4" id="reviewsDiv">
+        <div class="flex-item1 card">
             <div class="flex-item1-content">
                 <span><i class="ri-double-quotes-l"></i></span>
                 <div class="flex-item1-details">
@@ -165,12 +165,12 @@
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                     </p>
-                    <h6>-Sarah Jones </h6>
+                    <h6 class="card-title">-Sarah Jones </h6>
                 </div>
             </div>
         </div>  
-        <div class="flex-item2">
-            <div class="flex-item2-content">
+        <div class="flex-item2 container">
+            <div class="flex-item2-content card">
                 <span><i class="ri-double-quotes-l"></i></span>
                 <div class="flex-item2-details">
                     <p>
@@ -181,12 +181,12 @@
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                     </p>
-                    <h6>-John Jones </h6>
+                    <h6 class="card-title">-John Jones </h6>
                 </div>
             </div>
     </div>  
-    <div class="flex-item3">
-        <div class="flex-item3-content">
+    <div class="flex-item3 container">
+        <div class="flex-item3-content card">
             <span><i class="ri-double-quotes-l"></i></span>
             <div class="flex-item3-details">
                 <p>
@@ -197,13 +197,130 @@
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                 </p>
-                <h6>-Rebecca Smith </h6>
+                <h6 class="card-title">-Rebecca Smith </h6>
             </div>
         </div>
     </div>  
-    </div>
-    </div>
+    </div> -->
+    <section class="d-none" style="color: #000; background-color: #f3f2f2;" id="reviews">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-10 col-xl-8 text-center">
+              <h3 class="fw-bold mb-4">Testimonials</h3>
+              <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                We have assisted individuals worldwide in exploring a variety of international cuisines.
+              </p>
+            </div>
+          </div>
+      
+          <div class="row text-center">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                  </div>
+                  <h5 class="font-weight-bold">Sarah Jones</h5>
+                  <h6 class="font-weight-bold my-3">Food Vloger on Youtube </h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    I love this recipe website! The variety of recipes is impressive, and they cater to different dietary preferences.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                  </div>
+                  <h5 class="font-weight-bold">John Jones</h5>
+                  <h6 class="font-weight-bold my-3">Marathon Runner</h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info" style="color:yellow"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>Hands down my go-to recipe site! I've tried numerous recipes, and each one has been a hit. 5 stars every time.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                  </div>
+                  <h5 class="font-weight-bold">Rebecca Smith</h5>
+                  <h6 class="font-weight-bold my-3">Meal Planner at Pure Gyms</h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>Had a fabulous experience using Delish Discoveries. There are plenty of recipes available for anyone looking for delicious recipes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- </div> -->
     <!-- End of reviews section-->
+
+
+    
+
+
 
 <!-- Newsletter subscription section-->
 <form class="form-container d-none rounded-4" id="subscription">
