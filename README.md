@@ -21,7 +21,7 @@ To get the development environment running:
 - `assets/images/`: Contains all images used in the webpage
 
 ## Enduser usage instructions
-There is no special requirements for end users. Simply visit [here]() and start navigating!
+There is no special requirements for end users. Simply visit [here] (https://rossne99.github.io/Delish-Discoveries/) and start navigating!
 
 ## Features
 - **Generate recipes based on inputted ingredient**
@@ -60,11 +60,11 @@ The following image shows the web application's appearance and functionality:
 
 
 ## Credits 
-- **Ross** 
-- **Obaid**
-- **Leonie**
-- **Mahamuda**
-- **Ifeoma**
+- **Ross GitHub: RossNE99** 
+- **Obaid GitHub: obaid333**
+- **Leonie GitHub: LeonieWhitehead**
+- **Mahamuda GitHub: m-maha21**
+- **Ifeoma GitHub: ifeoma101**
 
 ## Installation
 N/A
