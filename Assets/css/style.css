@@ -75,7 +75,7 @@ aside {
   }
   
   #reviewsDiv {
-    background-color: var(--text-dark);
+    background-color: #f1f1f1;
     flex-direction: row;
   }
   
