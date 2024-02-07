@@ -27,8 +27,9 @@ function handleAddToFavoritesClick(){
     image: "sample-image.jpg",
     totalTime: "30 minutes",
     totalCalories: "500 kcal"
+    
 };
-
+console.log("test")
  // Call the addToFavorites function with the recipe details
  addToFavorites(recipe);
 }
@@ -51,9 +52,9 @@ function addToFavoritesUI(recipe) {
 }
 
 // Event listener for the "Add to Favorites" button
-$(document).ready(function () {
+// $(document).ready(function () {
   $("#favBtn").on("click", handleAddToFavoritesClick);
-});
+// });
 
 // Function to retrieve favorites from local storage and render them
 function renderFavorites() {
@@ -68,7 +69,7 @@ function renderFavorites() {
 }
 
 // Call renderFavorites when the page is loaded
-$(document).ready(function () {
-renderFavorites();
-});
+// $(document).ready(function () {
+// renderFavorites();
+// });
 
