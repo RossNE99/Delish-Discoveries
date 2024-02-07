@@ -35,7 +35,9 @@ nav ul li a:hover {
 }
 
 /* Footer Styles */
-.footer {
+footer {
+  position: relative;
+  width: 100%;
   padding: 30px;
   clear: both;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -53,25 +55,8 @@ aside {
   float: left;
 }
 
-
-.moveCenter {
-  position: relative;
-  left: 10%;
-}
-
-.moveCenterFooter {
-  position: relative;
-}
-
-.moveCenterCards {
-  position: relative;
-  left: 7.5%;
-}
-
 /* Reviews */
 .reviews-container {
-  position: relative;
-  left: 20%;
   text-align: center;
   max-width: 80%;
 }
@@ -89,7 +74,7 @@ aside {
     flex-direction: column;
   }
   
-  #row {
+  #reviewsDiv {
     background-color: var(--text-dark);
     flex-direction: row;
   }
@@ -193,12 +178,12 @@ aside {
   
 /* Newsletter Styles */
 
-form {
+#subscription form {
   border: 3px;
   color: var(--primary-color);
 }
 
-form h5 {
+#subscription h5 {
   font-family: 'Brush Script MT', cursive;
   font-size: 3rem;
   text-align: center;
@@ -209,7 +194,7 @@ form h5 {
   background-color: #f1f1f1;
 }
 
-input[type=text], input[type=submit] {
+#subscription input[type=text], input[type=submit] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -218,11 +203,11 @@ input[type=text], input[type=submit] {
   box-sizing: border-box;
 }
 
-input[type=checkbox] {
+#subscription input[type=checkbox] {
   margin-top: 16px;
 }
 
-input[type=submit] {
+#subscription input[type=submit] {
   background: linear-gradient(
     to left,
     var(--primary-color),
@@ -232,9 +217,13 @@ input[type=submit] {
   border: none;
 }
 
-input[type=submit]:hover {
+#subscription input[type=submit]:hover {
   opacity: 0.8;
 }
 
+
+#heroSection{
+  margin-top: 25vh;
+}
 
   

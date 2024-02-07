@@ -36,7 +36,7 @@ function openRecipeModal(e, recipe) {
         $("#ingredientsList").append(ingredientLI)
     });
 
-    $("#viewCookingInstructionsBtn").attr('onClick', `location.href='${url}'`);
+    $("#viewCookingInstructionsBtn").on('click', function(){ window.open(url, '_blank')});
 
     renderGraph(recipe)
     $('#recipeModal').modal('show');
@@ -53,7 +53,6 @@ function openRecipeModal(e, recipe) {
     $("#planMealForToday").on("click", function() {savePlannedRecipeToLocalStorage(dayjs())})
 
     function savePlannedRecipeToLocalStorage(mealDay) {
-        console.log(mealDay)
         var PlannedMealObj = {mealDay: mealDay.format("YYYY-MM-DD"), recipe}
         var prevPlannedMeals = JSON.parse(localStorage.getItem("plannedMeals")) || []
         localStorage.setItem("plannedMeals", JSON.stringify([...prevPlannedMeals, PlannedMealObj]))
