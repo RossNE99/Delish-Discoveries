@@ -2,260 +2,265 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./Assets/css/style.css">
-    <link rel="stylesheet" href="./Assets/css/sidebar.css">
-    <title>Delish Discoveries</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./Assets/css/style.css">
+  <link rel="stylesheet" href="./Assets/css/sidebar.css">
+  <title>Delish Discoveries</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <!-- Icon Links-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Icon Links-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
+
 <body>
-    <!-- nav -->
-    <aside class="sidebar">
-        <div class="sidebar">
-            <span class="fs-2 d-none d-md-inline">Delish Discoveries</span>
-            <a class="active" id="homeBtn"><i class="fs-5 bi-house fa fa-search me-1"></i><span class="">Search</span></a> 
-            <a  id="calendarBtn"><i class="fs-5 bi-house fa fa-calendar me-1"></i><span class="">Calendar</span></a>
-            <a  id="FavoritesNavBtn"><i class="fs-5 bi-house fa fa-heart me-1"></i><span class="">Favorites</span></a>
-            <a id="aboutUsBtn"><i class="fs-5 fa-user-plus fa me-1"></i><span class="">About Us</span></a>
-          </div>
-    </aside>
-  
+  <!-- nav -->
+  <aside class="sidebar">
+    <div class="sidebar">
+      <span class="fs-2 d-none d-md-inline">Delish Discoveries</span>
+      <a class="active" id="homeBtn"><i class="fs-5 bi-house fa fa-search me-1"></i><span class="">Search</span></a>
+      <a id="calendarBtn"><i class="fs-5 bi-house fa fa-calendar me-1"></i><span class="">Calendar</span></a>
+      <a id="FavoritesNavBtn"><i class="fs-5 bi-house fa fa-heart me-1"></i><span class="">Favorites</span></a>
+      <a id="aboutUsBtn"><i class="fs-5 fa-user-plus fa me-1"></i><span class="">About Us</span></a>
+    </div>
+  </aside>
+
   <!-- Page content -->
   <div class="content">
 
     <!-- Hero Section -->
     <div class="row d-flex justify-content-center bg-light-primary bg-cover">
-        <div class="row col-lg-6 col-md-8 col-sm-10 bg-light d-flex py-5 rounded-4" id="heroSection">
-                <section class="hero">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-auto col-md-5 mx-auto">
-                                <div class="row">
-                                        <h1 title="Delish Discoveries">Delish Discoveries
-                                            <span class="icon-container"><i class="fas fa-utensils"></i></span>
-                                        </h1>
-                                    </div>
-                                    <p class="subheading">Search for recipes by simply inputting the ingredients you have to
-                                        hand and plan out your meals for the week</p>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control form-input" id="ingredientsSearch"
-                                            placeholder="ingredients">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-danger" id="searchBtn">Search</button>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-        </div>
+      <div class="row col-lg-6 col-md-8 col-sm-10 bg-light d-flex py-5 rounded-4" id="heroSection">
+        <section class="hero">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-auto col-md-5 mx-auto">
+                <div class="row">
+                  <h1 title="Delish Discoveries">Delish Discoveries
+                    <span class="icon-container"><i class="fas fa-utensils"></i></span>
+                  </h1>
+                </div>
+                <p class="subheading">Search for recipes by simply inputting the ingredients you have to
+                  hand and plan out your meals for the week</p>
+                <div class="input-group">
+                  <input type="text" class="form-control form-input" id="ingredientsSearch" placeholder="ingredients">
+                  <div class="input-group-append">
+                    <button class="btn btn-danger" id="searchBtn">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
     <div id="mealCardSection" class="d-flex justify-content-center align-items-center mx-auto mt-4">
-        <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="recipe-list">
-            <!-- Cards inserted here using jquery -->
-        </div>
+      <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="recipe-list">
+        <!-- Cards inserted here using jquery -->
+      </div>
     </div>
 
     <!-- Calendar Section -->
     <div id="calendarSection" class="row d-flex justify-content-center align-items-center d-none mt-5">
-            <div class="col-10 col-sm-12" style="width: 100%; height: 100%; max-width: 1420px;" id='calendar'></div>
+      <div class="col-10 col-sm-12" style="width: 100%; height: 100%; max-width: 1420px;" id='calendar'></div>
     </div>
 
 
     <!-- favourites container -->
     <div id="favoritesSection" class="row height d-flex justify-content-center align-items-center d-none">
-        <h2 class="mt-3">Favourites</h2>
-        <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="favs-list">
-            <!-- Favorite recipes will be dynamically added here -->
-        </div>
+      <h2 class="mt-3">Favourites</h2>
+      <div style="max-width: 1420px;" class="row row-cols-1 row-cols-md-3" id="favs-list">
+        <!-- Favorite recipes will be dynamically added here -->
+      </div>
     </div>
 
 
     <!-- Modal -->
     <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="recipeModalLabel"></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="recipeModalLabel"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div id="recipeModalBody" class="modal-body p-4">
+            <div class="row">
+              <div id="recipeModalBodyImg" class="col-sm-12 col-md-6 card p-0 m-2" style="max-height: 45vh;"></div>
+              <div class="col-sm-12 col-md card p-0 m-2" style="max-height: 45vh;">
+                <div class="card-header">
+                  <h5>Ingredients</h5>
                 </div>
-                <div id="recipeModalBody" class="modal-body p-4">
-                    <div class="row">
-                        <div id="recipeModalBodyImg" class="col-sm-12 col-md-6 card p-0 m-2" style="max-height: 45vh;"></div>
-                        <div class="col-sm-12 col-md card p-0 m-2" style="max-height: 45vh;">
-                            <div class="card-header">
-                                <h5>Ingredients</h5>
-                            </div>
-                            <ul style="overflow: auto;" class="list-group list-group-flush" id="ingredientsList"></ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="recipeInfo" class="col-sm-12 col-md-4 card p-0 m-2"></div>
-                        <div class="col-sm-12 col-md card p-0 m-2">
-                            <div class="card-header">
-                                <h5>Nutrition Info</h5>
-                            </div>
-                            <div class="cardbody">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info" id="viewCookingInstructionsBtn">View cooking Instructions</button>
-                    <div class="dropup-center dropup">
-                        <button class="btn btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Plan meal
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><button id="planMealDateInput" class="dropdown-item">Select a Day</button></li>
-                          <li><button id="planMealForToday" class="dropdown-item" href="#">Plan for Today</button></li>
-                        </ul>
-                      </div>
-                    <button type="button" id="favBtn" class="btn btn-warning">Add to favourites</button>
-                </div>
+                <ul style="overflow: auto;" class="list-group list-group-flush" id="ingredientsList"></ul>
+              </div>
             </div>
+            <div class="row">
+              <div id="recipeInfo" class="col-sm-12 col-md-4 card p-0 m-2"></div>
+              <div class="col-sm-12 col-md card p-0 m-2">
+                <div class="card-header">
+                  <h5>Nutrition Info</h5>
+                </div>
+                <div class="cardbody">
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info" id="viewCookingInstructionsBtn">View cooking
+              Instructions</button>
+            <div class="dropup-center dropup">
+              <button class="btn btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Plan meal
+              </button>
+              <ul class="dropdown-menu">
+                <li><button id="planMealDateInput" class="dropdown-item">Select a Day</button></li>
+                <li><button id="planMealForToday" class="dropdown-item" href="#">Plan for Today</button></li>
+              </ul>
+            </div>
+            <button type="button" id="favBtn" class="btn btn-warning">Add to favourites</button>
+          </div>
         </div>
-        </div>
+      </div>
+    </div>
 
 
     <!-- Reviews Section -->
     <div style="background-color: #f3f2f2;" class="rounded-4 mt-3 d-none" id="reviews">
-        <section style="color: #000;">
-            <div class="container py-5">
-              <div class="row d-flex justify-content-center">
-                <div class="col-md-10 col-xl-8 text-center">
-                  <h3 class="fw-bold mb-4">Testimonials</h3>
-                  <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                    We have assisted individuals worldwide in exploring a variety of international cuisines.
+      <section style="color: #000;">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-10 col-xl-8 text-center">
+              <h3 class="fw-bold mb-4">Testimonials</h3>
+              <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                We have assisted individuals worldwide in exploring a variety of international cuisines.
+              </p>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                  </div>
+                  <h5 class="font-weight-bold">Sarah Jones</h5>
+                  <h6 class="font-weight-bold my-3">Food Vloger on Youtube </h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    I love this recipe website! The variety of recipes is impressive, and they cater to different
+                    dietary preferences.
                   </p>
                 </div>
               </div>
-        
-              <div class="row text-center">
-                <div class="col-md-4 mb-4 mb-md-0">
-                  <div class="card">
-                    <div class="card-body py-4 mt-2">
-                      <div class="d-flex justify-content-center mb-4">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
-                          class="rounded-circle shadow-1-strong" width="100" height="100" />
-                      </div>
-                      <h5 class="font-weight-bold">Sarah Jones</h5>
-                      <h6 class="font-weight-bold my-3">Food Vloger on Youtube </h6>
-                      <ul class="list-unstyled d-flex justify-content-center">
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                      </ul>
-                      <p class="mb-2">
-                        <i class="fas fa-quote-left pe-2"></i>
-                        I love this recipe website! The variety of recipes is impressive, and they cater to different dietary preferences.
-                      </p>
-                    </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
                   </div>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                  <div class="card">
-                    <div class="card-body py-4 mt-2">
-                      <div class="d-flex justify-content-center mb-4">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
-                          class="rounded-circle shadow-1-strong" width="100" height="100" />
-                      </div>
-                      <h5 class="font-weight-bold">John Jones</h5>
-                      <h6 class="font-weight-bold my-3">Marathon Runner</h6>
-                      <ul class="list-unstyled d-flex justify-content-center">
-                        <li>
-                          <i class="fas fa-star fa-sm text-info" style="color:yellow"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                      </ul>
-                      <p class="mb-2">
-                        <i class="fas fa-quote-left pe-2"></i>Hands down my go-to recipe site! I've tried numerous recipes, and each one has been a hit. 5 stars every time.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-0">
-                  <div class="card">
-                    <div class="card-body py-4 mt-2">
-                      <div class="d-flex justify-content-center mb-4">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
-                          class="rounded-circle shadow-1-strong" width="100" height="100" />
-                      </div>
-                      <h5 class="font-weight-bold">Rebecca Smith</h5>
-                      <h6 class="font-weight-bold my-3">Meal Planner at Pure Gyms</h6>
-                      <ul class="list-unstyled d-flex justify-content-center">
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                        <li>
-                          <i class="fas fa-star fa-sm text-info"></i>
-                        </li>
-                      </ul>
-                      <p class="mb-2">
-                        <i class="fas fa-quote-left pe-2"></i>Had a fabulous experience using Delish Discoveries. There are plenty of recipes available for anyone looking for delicious recipes.
-                      </p>
-                    </div>
-                  </div>
+                  <h5 class="font-weight-bold">John Jones</h5>
+                  <h6 class="font-weight-bold my-3">Marathon Runner</h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info" style="color:yellow"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>Hands down my go-to recipe site! I've tried numerous recipes,
+                    and each one has been a hit. 5 stars every time.
+                  </p>
                 </div>
               </div>
             </div>
-          </section>
-        <!-- </div> -->
-        <!-- End of reviews section-->
-        
-        
-        <!-- Newsletter subscription section-->
-        <form class="form-container rounded-4" id="subscription">
-          <h5>Subscribe to our Newsletter</h5>
+            <div class="col-md-4 mb-0">
+              <div class="card">
+                <div class="card-body py-4 mt-2">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                  </div>
+                  <h5 class="font-weight-bold">Rebecca Smith</h5>
+                  <h6 class="font-weight-bold my-3">Meal Planner at Pure Gyms</h6>
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                    <li>
+                      <i class="fas fa-star fa-sm text-info"></i>
+                    </li>
+                  </ul>
+                  <p class="mb-2">
+                    <i class="fas fa-quote-left pe-2"></i>Had a fabulous experience using Delish Discoveries. There are
+                    plenty of recipes available for anyone looking for delicious recipes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- </div> -->
+      <!-- End of reviews section-->
+
+
+      <!-- Newsletter subscription section-->
+      <form class="form-container rounded-4" id="subscription">
+        <h5>Subscribe to our Newsletter</h5>
         <div class="container" style="background-color:white">
           <input type="text" placeholder="Name" name="name" required>
           <input type="text" placeholder="Email address" name="mail" required>
@@ -265,39 +270,39 @@
         </div>
         <div class="container">
           <input type="submit" value="Subscribe">
-          </div>
-          </form>
+        </div>
+      </form>
     </div>
 
-<!--End of newsletter subscription section-->
+    <!--End of newsletter subscription section-->
     <footer class="row">
-                <h6>Made with 🤍 by Delish Discoveries</h6>
-                <p>
-                    Copyright © 2024 Delish Discoveries. All Rights Reserved.
-                </p>
-                <p id="contact">
-                    <a href="#contact" class="fa fa-facebook"></a>
-                    <a href="#contact" class="fa fa-twitter"></a>
-                    <a href="#contact"  class="fa fa-instagram"></a>
-                </p>
+      <h6>Made with 🤍 by Delish Discoveries</h6>
+      <p>
+        Copyright © 2024 Delish Discoveries. All Rights Reserved.
+      </p>
+      <p id="contact">
+        <a href="#contact" class="fa fa-facebook"></a>
+        <a href="#contact" class="fa fa-twitter"></a>
+        <a href="#contact" class="fa fa-instagram"></a>
+      </p>
     </footer>
 
-</div>
+  </div>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script src="./Assets/js/recipeModal.js"></script>
-<script src="./Assets/js/chart.js"></script>
-<script src="./Assets/js/calender.js"></script>
-<script src="./Assets/js/faves.js"></script>
-<script src="./Assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="./Assets/js/recipeModal.js"></script>
+  <script src="./Assets/js/chart.js"></script>
+  <script src="./Assets/js/calender.js"></script>
+  <script src="./Assets/js/faves.js"></script>
+  <script src="./Assets/js/script.js"></script>
 </body>
 
 </html>
