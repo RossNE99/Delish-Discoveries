@@ -26,7 +26,7 @@ function openRecipeModal(e, recipe) {
             <li class="list-group-item"><b>Cuisine Type(s):</b> ${cuisineType.join(", ")}</li>
             <li class="list-group-item"><b>Dish Type:</b> ${dishType.join(", ")}</li>
             <li class="list-group-item"><b>Diet Labels:</b> ${dietLabels.join(", ")}</li>
-            <li class="list-group-item"><b>serves:</b> ${yield} People</li>
+            <li class="list-group-item"><b>Serves:</b> ${yield} People</li>
         </ul>`    //Not sure if yield is acuareate :/
     })
     $("#recipeInfo").empty().append(recipeInfo) //add the recipe info section to the page
