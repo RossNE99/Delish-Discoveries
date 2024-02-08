@@ -223,20 +223,15 @@ aside {
 
 
 #heroSection{
-  margin-top: 25vh;
+  margin-top: 17vh;
 }
 
 
 /* Card styling*/
-.col {
-  border-radius: 15px;
-flex:content
-}
-
-.col:hover {
+#recipe-list .card:hover ,#favs-list .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+}
 
 .fa-star {
   color: orange;
-
 }
