@@ -25,7 +25,7 @@ function renderFavsList(){
       $("#favs-list").append(recipeCard) //add recipe card to the recipe card div
   })
 
-  $("#favs-list").on("click", ".card", function(e) {
+  $("#favs-list").on("click", ".card", function(e) {  //event listener to call openRecipeModal when a card is clicked, the recipe is passed in
     var recipeId = $(e.currentTarget).data("recipeid")
     var recipe = favorites.find(recipe => recipe._links.self.href === recipeId);
     openRecipeModal(null, recipe)
