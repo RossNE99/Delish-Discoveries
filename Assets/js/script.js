@@ -88,45 +88,47 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     }
 
 
-    function handelSearch(e){
-        var ingredientsSearched = $("#ingredientsSearch").val()
-        if(!ingredientsSearched || ingredientsSearched ==="") return
-        loadedRecipes = []
-        uniqueKeysSet.clear()
-        nextPageLink = null
-        fetchData(ingredientsSearched, renderRecipeList, fetchError)
+    function handelSearch(e){   //function to handel when search button is clicked
+        var ingredientsSearched = $("#ingredientsSearch").val() //get search query from user input
+        if(!ingredientsSearched || ingredientsSearched ==="") return    //do nothing if its an empty string
+        loadedRecipes = []  //reset loadedRecipes array 
+        uniqueKeysSet.clear()   //clear uniqe keys
+        nextPageLink = null //reset next page link
+        fetchData(ingredientsSearched, renderRecipeList, fetchError) //fetch the data
     }
 
-    function handelCalBtnClick(e) {
-        $("#mealCardSection, #heroSection, #reviews, #favoritesSection").addClass("d-none")
-        $("#calendarSection").removeClass("d-none")
-        $("#homeBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")
-        $("#calendarBtn").addClass("active")
-        rednderCal()
+    function handelCalBtnClick(e) {     //function to handel when cal button is clicked in the nav bar
+        $("#mealCardSection, #heroSection, #reviews, #favoritesSection").addClass("d-none") //hide all other sections
+        $("#calendarSection").removeClass("d-none") //show the call section
+        $("#homeBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active") //remove highlight from all other sections in nav bar
+        $("#calendarBtn").addClass("active")    //add highlight to cal section in nav bar
+        rednderCal()   //create the callendar
     }
 
-    function handelHomeBtnClick(e){
-        $("#mealCardSection, #heroSection").removeClass("d-none")
-        $("#calendarSection, #reviews, #favoritesSection").addClass("d-none")
-        $("#calendarBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")
-        $("#homeBtn").addClass("active")
+    function handelHomeBtnClick(e){ //function to handel when home button is clicked in the nav bar
+        $("#mealCardSection, #heroSection").removeClass("d-none") //show the home section
+        $("#calendarSection, #reviews, #favoritesSection").addClass("d-none") //hide all other sections
+        $("#calendarBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")//remove highlight from all other sections in nav bar
+        $("#homeBtn").addClass("active")//add highlight to home section in nav bar
     }
 
-    function handelAboutUsBtnClick(e) {
+    function handelAboutUsBtnClick(e) {     //function to handel when about us button is clicked in the nav bar
         $("#mealCardSection, #heroSection, #calendarSection, #favoritesSection").addClass("d-none")
         $("#reviews").removeClass("d-none")
-        $("#calendarBtn, #homeBtn, #FavoritesNavBtn").removeClass("active")
+        $("#calendarBtn, #homeBtn, #FavoritesNavBtn").removeClass("active")                                 //all same as above
         $("#aboutUsBtn").addClass("active")
     }
 
-    function handelFavBtnClick(e) {
+    function handelFavBtnClick(e) {     //function to handel when fav button is clicked in the nav bar
         $("#mealCardSection, #heroSection, #calendarSection, #reviews").addClass("d-none")
         $("#favoritesSection").removeClass("d-none")
-        $("#calendarBtn, #homeBtn, #aboutUsBtn").removeClass("active")
+        $("#calendarBtn, #homeBtn, #aboutUsBtn").removeClass("active")                                  //all same as above
         $("#FavoritesNavBtn").addClass("active")
-        renderFavsList()
+        renderFavsList()    //render the favs to the page
     }
 
+
+    //event listeners
     $("#searchBtn").on("click", handelSearch)
     $("#recipe-list").on("click", ".card", openRecipeModal)
 
@@ -137,6 +139,9 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
 
     $("#FavoritesNavBtn").on("click", handelFavBtnClick)
 
+
+
+    //load next page from API when user scrolls to the bottom of the results 
     $(window).scroll(function() {   
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
             if(nextPageLink) fetchData(null, renderRecipeList, fetchError, nextPageLink)
