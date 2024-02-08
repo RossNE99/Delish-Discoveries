@@ -100,7 +100,7 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     function handelCalBtnClick(e) {
         $("#mealCardSection, #heroSection, #subscription, #reviews, #favoritesSection").addClass("d-none")
         $("#calendarSection").removeClass("d-none")
-        $("#homeBtn, #aboutUsBtn, #favoritesSection").removeClass("active")
+        $("#homeBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")
         $("#calendarBtn").addClass("active")
         rednderCal()
     }
@@ -122,7 +122,7 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     function handelFavBtnClick(e) {
         $("#mealCardSection, #heroSection, #calendarSection").addClass("d-none")
         $("#favoritesSection").removeClass("d-none")
-        $("#calendarBtn, #homeBtn").removeClass("active")
+        $("#calendarBtn, #homeBtn, #aboutUsBtn").removeClass("active")
         $("#FavoritesNavBtn").addClass("active")
         renderFavsList()
     }
@@ -136,11 +136,6 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     $("#aboutUsBtn").on("click", handelAboutUsBtnClick)
 
     $("#FavoritesNavBtn").on("click", handelFavBtnClick)
-
-    $('#recipeModal').on('hidden.bs.modal', function (e) {
-        $('#recipeModal').modal('dispose')
-        console.log("test")
-      })
 
     $(window).scroll(function() {   
         if($(window).scrollTop() + $(window).height() == $(document).height()) {

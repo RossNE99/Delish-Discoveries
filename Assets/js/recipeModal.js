@@ -1,11 +1,12 @@
 function openRecipeModal(e, recipe) {
 
+    $("#recipeModal button").off("click");
 
     if(!recipe){
         var recipeId = $(e.currentTarget).data("recipeid")
         recipe = loadedRecipes.find(recipe => recipe._links.self.href === recipeId);    //This probs inst tbe most efficent way but just send it
     } else {
-        $("#planMealDateInput").addClass
+      //  $("#planMealDateInput").addClass - Unfinnished remove buttons for add to call here if opened from cal
     }
 
 
@@ -57,14 +58,13 @@ function openRecipeModal(e, recipe) {
     function savePlannedRecipeToLocalStorage(mealDay) {
         var PlannedMealObj = {mealDay: mealDay.format("YYYY-MM-DD"), recipe}
         var prevPlannedMeals = JSON.parse(localStorage.getItem("plannedMeals")) || []
+    
         localStorage.setItem("plannedMeals", JSON.stringify([...prevPlannedMeals, PlannedMealObj]))
         showToast("Meal added to calendar!", `${recipe.recipe.label}, has been planned for ${dayjs(mealDay).format("D MMM")}`, `fa-save`, 'blue') //show a toast to the user to let them know that there task has been saved
         }
-
-
+        
       // Event listener for the "Add to Favorites" button
       $("#favBtn").on("click", function() {addToFavorites(recipe)});
-
 }
 
 
@@ -96,18 +96,18 @@ function addToFavorites(recipe) {
     // Store favorites in local storage
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    favorites.forEach((fav) => {
-    console.log(recipe._links.self.href)
-    console.log(fav._links.self.href)
-    if(fav._links.self.href === recipe._links.self.href) {
-        console.log("true")
-    }
-    })
+    if (favExists(recipe._links.self.href, favorites)) return
 
     favorites.push(recipe);
     localStorage.setItem("favorites", JSON.stringify(favorites));
     showToast("Meal Saved!", `${recipe.recipe.label}, has been saved to favs`, `fa-save`, 'yellow') //show a toast to the user to let them know that there task has been saved
-  }
+  
+    function favExists(href, prevFavs) {        
+        return prevFavs.some(obj =>
+            obj._links.self.href === href
+        );
+    }
+}
 
 
 

@@ -4,7 +4,6 @@ function renderFavsList(){
   $.each(favorites, function(index, recipe){   //for each recipe create a recipe card
 
       const uniqueKey = recipe._links.self.href
-      uniqueKeysSet.add(uniqueKey)
 
       var {image, label, totalTime, calories, dietLabels} = recipe.recipe  //destructute 
       var recipeCard = $("<div>", { //create the parent div for the recipe card
@@ -24,5 +23,11 @@ function renderFavsList(){
               </div>`,
       })
       $("#favs-list").append(recipeCard) //add recipe card to the recipe card div
+  })
+
+  $("#favs-list").on("click", ".card", function(e) {
+    var recipeId = $(e.currentTarget).data("recipeid")
+    var recipe = favorites.find(recipe => recipe._links.self.href === recipeId);
+    openRecipeModal(null, recipe)
   })
 }
