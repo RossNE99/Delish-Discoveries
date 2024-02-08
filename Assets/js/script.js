@@ -98,25 +98,33 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     }
 
     function handelCalBtnClick(e) {
-        $("#mealCardSection, #heroSection, #subscription, #reviews").addClass("d-none")
+        $("#mealCardSection, #heroSection, #reviews, #favoritesSection").addClass("d-none")
         $("#calendarSection").removeClass("d-none")
-        $("#homeBtn, #aboutUsBtn").removeClass("active")
+        $("#homeBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")
         $("#calendarBtn").addClass("active")
         rednderCal()
     }
 
     function handelHomeBtnClick(e){
         $("#mealCardSection, #heroSection").removeClass("d-none")
-        $("#calendarSection, #subscription, #reviews").addClass("d-none")
-        $("#calendarBtn, #aboutUsBtn").removeClass("active")
+        $("#calendarSection, #reviews, #favoritesSection").addClass("d-none")
+        $("#calendarBtn, #aboutUsBtn, #FavoritesNavBtn").removeClass("active")
         $("#homeBtn").addClass("active")
     }
 
     function handelAboutUsBtnClick(e) {
-        $("#mealCardSection, #heroSection, #calendarSection").addClass("d-none")
-        $("#reviews, #subscription").removeClass("d-none")
-        $("#calendarBtn, #homeBtn").removeClass("active")
+        $("#mealCardSection, #heroSection, #calendarSection, #favoritesSection").addClass("d-none")
+        $("#reviews").removeClass("d-none")
+        $("#calendarBtn, #homeBtn, #FavoritesNavBtn").removeClass("active")
         $("#aboutUsBtn").addClass("active")
+    }
+
+    function handelFavBtnClick(e) {
+        $("#mealCardSection, #heroSection, #calendarSection, #reviews").addClass("d-none")
+        $("#favoritesSection").removeClass("d-none")
+        $("#calendarBtn, #homeBtn, #aboutUsBtn").removeClass("active")
+        $("#FavoritesNavBtn").addClass("active")
+        renderFavsList()
     }
 
     $("#searchBtn").on("click", handelSearch)
@@ -126,6 +134,8 @@ function fetchData(ingredients , successCallback, errorCallback, nextPageLink) {
     $("#calendarBtn").on("click", handelCalBtnClick)
 
     $("#aboutUsBtn").on("click", handelAboutUsBtnClick)
+
+    $("#FavoritesNavBtn").on("click", handelFavBtnClick)
 
     $(window).scroll(function() {   
         if($(window).scrollTop() + $(window).height() == $(document).height()) {

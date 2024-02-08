@@ -15,7 +15,7 @@ function rednderCal() {
         center: 'title',
         right: ''
       },
-      events: createCalData(JSON.parse(localStorage.getItem("plannedMeals")))
+      events: createCalData(JSON.parse(localStorage.getItem("plannedMeals")) || [])
     });
     calendar.render();
   };
